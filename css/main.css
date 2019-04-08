@@ -1823,7 +1823,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffcda8;
+  background: #7e30ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3152,4 +3152,33 @@ a {
 .comments {
   border-radius: 10px;
   background: rgba(255,255,255,0.6) none repeat scroll !important;
+}
+.container .sidebar-position-left .page-home {
+  background: none;
+  border-radius: 20px;
+}
+.site-meta {
+  background: rgba(0,0,0,0.6) none repeat scroll !important;
+}
+.header-inner {
+  background: rgba(255,255,255,0.6) none repeat scroll !important;
+}
+.sidebar {
+  background: none;
+}
+.site-description,
+.links-of-author-item,
+.site-state-item-name,
+.site-state-item-count {
+  color: #000;
+}
+.sidebar-inner {
+  background: rgba(255,255,255,0.6) none repeat scroll !important;
+}
+.site-author-image {
+  border-radius: 16px;
+  border: none;
+}
+.site-overview-wrap {
+  background: none;
 }
