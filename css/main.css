@@ -1823,7 +1823,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffe408;
+  background: #ff57a8;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3122,7 +3122,7 @@ pre .javascript .function {
   }
 }
 body {
-  background: url("http://ppjlbka47.bkt.clouddn.com/blogBg.jpg");
+  background: url("http://xunmengren-blog.oss-cn-beijing.aliyuncs.com/image/blogBg.jpg?Expires=1554802048&OSSAccessKeyId=TMP.AQHECFXxDC2iBvX_J_p50xdo3kMxMTyywHAduv3e_RTtA1oRlKGk4UaHc0nDAAAwLAIUWtLVqUnWMhTaRM6GQVTusON4HZkCFBJ0cJt9IO3osfRbDn7IfqHH0ccA&Signature=Lbm%2BLSzDiPRm9QU7fjr%2FqVbzVA0%3D");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
