@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="js,面试,运行原理,">
+  <meta name="keywords" content="js,面试,">
 
 
 
@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="call, apply, bind这三个改变this指向的函数经常被用到，无论是开发还是面试。了解其实现原理，是一名合格的前端程序员必备技能。  如果还不知道call, apply, bind的基本用法，请先自行百度">
-<meta name="keywords" content="js,面试,运行原理">
+<meta name="description" content="闭包闭包的作用：闭包的本质是一个函数闭包可以访问函数内部变量闭包的存在会使内部变量保留在内存中闭包的应用：1) 模仿块级作用域2) 存储变量（js GC原理，基于javascript中函数作用域链的特点，内部函数保留了对外部函数的活动变量的引用，所以变量不会被释放）， 用于保存比较重要或者计算耗费很大的值。3) 封装私有变量（不直接访问变量） 在了解闭包的作用之前，我们先了解一下 Javascri">
+<meta name="keywords" content="js,面试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="手写call、apply和bind">
-<meta property="og:url" content="http://Thedream-sky.github.io/2019/05/03/手写call、apply和bind/index.html">
+<meta property="og:title" content="闭包与setTimeout">
+<meta property="og:url" content="http://Thedream-sky.github.io/2019/05/11/闭包与setTimeout/index.html">
 <meta property="og:site_name" content="寻梦人的个人博客">
-<meta property="og:description" content="call, apply, bind这三个改变this指向的函数经常被用到，无论是开发还是面试。了解其实现原理，是一名合格的前端程序员必备技能。  如果还不知道call, apply, bind的基本用法，请先自行百度">
+<meta property="og:description" content="闭包闭包的作用：闭包的本质是一个函数闭包可以访问函数内部变量闭包的存在会使内部变量保留在内存中闭包的应用：1) 模仿块级作用域2) 存储变量（js GC原理，基于javascript中函数作用域链的特点，内部函数保留了对外部函数的活动变量的引用，所以变量不会被释放）， 用于保存比较重要或者计算耗费很大的值。3) 封装私有变量（不直接访问变量） 在了解闭包的作用之前，我们先了解一下 Javascri">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/17345926-9a517d793c10c7c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-05-02T17:39:06.101Z">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/5/11/16aa27c9e4a47e63?w=456&h=84&f=png&s=6603">
+<meta property="og:updated_time" content="2019-05-10T16:31:10.038Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="手写call、apply和bind">
-<meta name="twitter:description" content="call, apply, bind这三个改变this指向的函数经常被用到，无论是开发还是面试。了解其实现原理，是一名合格的前端程序员必备技能。  如果还不知道call, apply, bind的基本用法，请先自行百度">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/17345926-9a517d793c10c7c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="闭包与setTimeout">
+<meta name="twitter:description" content="闭包闭包的作用：闭包的本质是一个函数闭包可以访问函数内部变量闭包的存在会使内部变量保留在内存中闭包的应用：1) 模仿块级作用域2) 存储变量（js GC原理，基于javascript中函数作用域链的特点，内部函数保留了对外部函数的活动变量的引用，所以变量不会被释放）， 用于保存比较重要或者计算耗费很大的值。3) 封装私有变量（不直接访问变量） 在了解闭包的作用之前，我们先了解一下 Javascri">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/5/11/16aa27c9e4a47e63?w=456&h=84&f=png&s=6603">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://Thedream-sky.github.io/2019/05/03/手写call、apply和bind/">
+  <link rel="canonical" href="http://Thedream-sky.github.io/2019/05/11/闭包与setTimeout/">
 
 
 
 
 
-  <title>手写call、apply和bind | 寻梦人的个人博客</title>
+  <title>闭包与setTimeout | 寻梦人的个人博客</title>
   
 
 
@@ -268,7 +268,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Thedream-sky.github.io/2019/05/03/手写call、apply和bind/">
+    <link itemprop="mainEntityOfPage" href="http://Thedream-sky.github.io/2019/05/11/闭包与setTimeout/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="寻梦人">
@@ -285,7 +285,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">手写call、apply和bind</h1>
+          <h1 class="post-title" itemprop="name headline">闭包与setTimeout</h1>
         
 
         <div class="post-meta">
@@ -297,8 +297,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T01:24:58+08:00">
-                2019-05-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-11T00:28:01+08:00">
+                2019-05-11
               </time>
             
 
@@ -357,18 +357,26 @@
       
 
       
-        <p>call, apply, bind这三个改变this指向的函数经常被用到，无论是开发还是面试。了解其实现原理，是一名合格的前端程序员必备技能。</p>
-<ul>
-<li>如果还不知道call, apply, bind的基本用法，请先自行百度<a id="more"></a>
-<h2 id="动手需知"><a href="#动手需知" class="headerlink" title="动手需知"></a>动手需知</h2>在自行实现这几个方法前，你得知道几个基本的知识点：</li>
-<li>arguments是什么？<br>借用MDN的说法：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/arguments" target="_blank" rel="noopener">arguments对象是所有（非箭头）函数中都可用的局部变量。你可以使用arguments对象在函数中引用函数的参数。此对象包含传递给函数的每个参数</a></li>
-<li>slice的用法：slice(index)代表从下标index开始截取数组。（其他用法自行查询去）<br>那么接下来就是见证奇迹的时刻了。</li>
-</ul>
-<h2 id="call的实现"><a href="#call的实现" class="headerlink" title="call的实现"></a>call的实现</h2><p>call的关键两点： 1、改变上下文指向； 2、传入多个参数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Function.propoType.myCall = function(content)&#123;</span><br><span class="line">  // call方法只能是方法才能调用</span><br><span class="line">  if(typeof this !== &quot;function&quot;)&#123;</span><br><span class="line">   throw new TypeError（&quot;Error&quot;）;</span><br><span class="line">  &#125;</span><br><span class="line">  // 如果没有指定上下文，默认是全局对象window</span><br><span class="line">  // 不要写成this.window。当this指向发生变化，可能找不到全局对象window</span><br><span class="line">  content = content || window;</span><br><span class="line">  let fn = Symbol(content);          // 避免属性重复</span><br><span class="line">  let args = [...arguments].slice(1)</span><br><span class="line">  //改变this指向</span><br><span class="line">  content[fn] = this; //给content添加一个方法 指向this</span><br><span class="line">  let result = content[fn](...args);  //传入参数</span><br><span class="line">  delete content[fn];                     // 删除fn 方法，一个中间变量用完删除</span><br><span class="line">  return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="apply-的实现"><a href="#apply-的实现" class="headerlink" title="apply 的实现"></a>apply 的实现</h2><p>apply的关键两点：1、改变上下文指向； 2、传入参数数组。<br>在实现原理上基本和call差不多，主要是参数的区别。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Function.propoType.myApply = function(content)&#123;</span><br><span class="line">  // apply方法只能是方法才能调用</span><br><span class="line">  if(typeof this !== &quot;function&quot;)&#123;</span><br><span class="line">   throw new TypeError（&quot;Error&quot;）;</span><br><span class="line">  &#125;</span><br><span class="line">  // 如果没有指定上下文，默认是全局对象window</span><br><span class="line">  // 不要写成this.window。当this指向发生变化，可能找不到全局对象window</span><br><span class="line">  content = content || window;</span><br><span class="line">  let fn = Symbol(content);          // 避免属性重复</span><br><span class="line">  let args = [...arguments][1];      // 记住传入的是数组！！！</span><br><span class="line"> //改变this指向</span><br><span class="line">  content[fn] = this; //给content添加一个方法 指向this</span><br><span class="line">  let result ; </span><br><span class="line">  if(args)&#123;</span><br><span class="line">     result = content[fn](...args);  //传入参数</span><br><span class="line">  &#125;else&#123;</span><br><span class="line">    result = content[fn]();  //传入参数</span><br><span class="line">  &#125;</span><br><span class="line">  delete content[fn];                     // 删除fn 方法，一个中间变量用完删除</span><br><span class="line">  return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="bind-的实现"><a href="#bind-的实现" class="headerlink" title="bind 的实现"></a>bind 的实现</h2><p>bind 的关键几点：1、改变上下文指向；2、传入多个参数；3、返回的是函数的方法名，不会立即执行。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Function.propoType.myBind = function(content)&#123;</span><br><span class="line">    self = this;</span><br><span class="line">  // bind方法只能是方法才能调用</span><br><span class="line">  if(typeof this !== &quot;function&quot;)&#123;</span><br><span class="line">   throw new TypeError（&quot;Error&quot;）;</span><br><span class="line">  &#125;</span><br><span class="line">  // 可以支持柯里化传参，保存参数</span><br><span class="line">  args = [...arguments].slice(1);</span><br><span class="line">  function Fn ()&#123;</span><br><span class="line"> // 考虑需要绑定的函数可能是构造函数，this不会被绑定，但是参数仍然会传递。</span><br><span class="line">      if(this instanceof Fn)&#123;</span><br><span class="line">          return self(...args.concat(...arguments));//构造函数直接传参</span><br><span class="line">      &#125;else&#123;</span><br><span class="line">          return self.apply(content,args.concat(...arguments));// apply传的是数组</span><br><span class="line">     &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return Fn;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">let Person = &#123;</span><br><span class="line">    name: &apos;Tom&apos;,</span><br><span class="line">    say(x, y) &#123;</span><br><span class="line">        //console.log(this)</span><br><span class="line">        console.log(`我叫$&#123;this.name&#125;$&#123;x&#125;$&#123;y&#125;`)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">Person1 = &#123;</span><br><span class="line">    name: &apos;Tom1&apos;</span><br><span class="line">&#125;</span><br><span class="line">Person.say.myCall(Person1, &apos; call你干嘛&apos;, &apos; 哈哈哈&apos;);</span><br><span class="line">Person.say.myApply(Person1, [&apos; apply你干嘛&apos;, &apos; 哈哈哈&apos;,]);</span><br><span class="line">Person.say.myBind(Person1, &apos; bind你干嘛&apos;, &apos; 哈哈哈kk&apos;)()</span><br></pre></td></tr></table></figure></p>
-<p>执行结果：<br><img src="https://upload-images.jianshu.io/upload_images/17345926-9a517d793c10c7c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="结果"><br>结果完美呈现，以上便是call, apply, bind的简单实现。</p>
+        <h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><h3 id="闭包的作用："><a href="#闭包的作用：" class="headerlink" title="闭包的作用："></a>闭包的作用：</h3><p>闭包的本质是一个函数<br>闭包可以访问函数内部变量<br>闭包的存在会使内部变量保留在内存中<br>闭包的应用：<br>1) 模仿块级作用域<br>2) 存储变量（js GC原理，基于javascript中函数作用域链的特点，内部函数保留了对外部函数的活动变量的引用，所以变量不会被释放）， 用于保存比较重要或者计算耗费很大的值。<br>3) 封装私有变量（不直接访问变量）</p>
+<p>在了解闭包的作用之前，我们先了解一下 Javascript 中的 GC 机制:</p>
+<p>在 Javascript 中，<font style="color: red">如果一个对象不再被引用，那么这个对象就会被 GC 回收，否则这个对象一直会保存在内存中。</font></p>
+<p>在下述例子中，B 定义在 A 中，因此 B 依赖于 A ,而外部变量 C 又引用了 B , 所以A间接的被 C 引用。</p>
+<p>也就是说，A 不会被 GC 回收，会一直保存在内存中。：<br>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function A() &#123;</span><br><span class="line">    var count = 0;</span><br><span class="line">    function B() &#123;</span><br><span class="line">       count ++;</span><br><span class="line">       console.log(count);</span><br><span class="line">    &#125;</span><br><span class="line">    return B;</span><br><span class="line">&#125;</span><br><span class="line">var C = A();</span><br><span class="line">C();// 1</span><br><span class="line">C();// 2</span><br><span class="line">C();// 3</span><br></pre></td></tr></table></figure></p>
+<p>() 等价于 （A（））（）,为了访问函数内部的函数，并且隐藏内部的函数信息得到需要的结果。<br>高级写法：匿名函数的写法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(function (s)&#123;...&#125;)(s)等价于</span><br><span class="line"></span><br><span class="line">function A()&#123;</span><br><span class="line">function B(s)&#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line">return B;</span><br><span class="line">&#125;;</span><br><span class="line">//相对于</span><br><span class="line">function(s)&#123;...&#125; === B === A();</span><br><span class="line">B(s) === (function(s)&#123;...&#125;)(s)= (A())(s);</span><br></pre></td></tr></table></figure></p>
+<p>这里很明显可以看到外面可以访问函数内部的变量，这是闭包的一个很重要的功能。</p>
+<p>什么是闭包？所谓闭包就是利用函数的局部作用域的特性（函数内部的函数可以访问函数的变量，而内部函数里的变量函数无法访问）来实现外部函数通过闭包获取函数内部变量的一个过程，同时也不需要暴露内部的具体情况。而利用GC特性，我们通过闭包可以保存一些需要长时间保持的数据。</p>
+<h2 id="setTimeout"><a href="#setTimeout" class="headerlink" title="setTimeout"></a>setTimeout</h2><p>可能有人会说，切,setTimeout有啥可说啊~~~不好意思，可能本人见识短浅，setTimeout这里还是有几点可以说到说到。</p>
+<p>在讲setTimeout之前，先看个经典的例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(var i=0; i&lt;=5; i++)&#123;</span><br><span class="line">    setTimeout(function()&#123;</span><br><span class="line">        console.log(i);</span><br><span class="line">    &#125;, i*1000);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>大家应该都知道，由于js的运行机制setTimeout属于异步任务。setTimeout 会挂起微任务，由于var不存在块级作用域，所以最终的i都是同一个i，i === 5循环结束，i+1 === 6，然后打印。所以结果是6，6，6，6，6，6。<br>那么如何乖乖的让这个打印出0到5呢？目前我想到了三种情况：</p>
+<p>1) 闭包： 既然var没有块级作用域，那就用闭包模拟块级作用域。(实质是利用函数的局部作用域)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for(var i=0; i&lt;=5; i++)&#123;</span><br><span class="line">    (function(j)&#123;</span><br><span class="line">        setTimeout(function()&#123;</span><br><span class="line">            console.log(j);</span><br><span class="line">        &#125;, i*1000);</span><br><span class="line">    &#125;)(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2) let： let的块级作用域。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(let i=0; i&lt;=5; i++)&#123;</span><br><span class="line">    setTimeout(function()&#123;</span><br><span class="line">        console.log(i);</span><br><span class="line">    &#125;, i*1000);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>3)setTimeout传参：可能有些人知道，可能有的人并不知道。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(var i=0; i&lt;=5; i++)&#123;</span><br><span class="line">    setTimeout(function(j)&#123;</span><br><span class="line">        console.log(j);</span><br><span class="line">    &#125;, i*1000, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>其实setTimeout内部同样是用到了闭包传参给回调函数，所以，我们可以使用setTimeout传参实现这个。</p>
+<h2 id="引申一下："><a href="#引申一下：" class="headerlink" title="引申一下："></a>引申一下：</h2><p>setTimeout是不是只能传一个参数，NO、NO、NO，肯定不是，用脚想想都不可能（考虑到实用性，通用性），那么怎么传？不买关子了，看例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var i = 1;     </span><br><span class="line">setTimeout(function(j,k,l)&#123;</span><br><span class="line">       console.log(j,k,l);</span><br><span class="line">   &#125;, i*1000, i,2*i, 3*i);</span><br></pre></td></tr></table></figure></p>
+<p>打印结果：<br><img src="https://user-gold-cdn.xitu.io/2019/5/11/16aa27c9e4a47e63?w=456&amp;h=84&amp;f=png&amp;s=6603" alt><br>我们可以大胆的猜测，setTimeout从第三个参数开始，可以传多个参数给回调函数。</p>
+<p>不放心的话，可以去MDN里仔细的了解一下：<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/setTimeout" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/Window/setTimeout</a></p>
+<p>如果觉得这么一个的写传入的参数，或者是参数的个数不明确，该怎么传？此时es6里的扩展运算符…可以排上用途了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var i = 1;     </span><br><span class="line">setTimeout(function(...args)&#123;</span><br><span class="line">       console.log(args[0],args[1], args[2]);</span><br><span class="line">   &#125;, i*1000, ...[i, 2*i, 3*i]);</span><br></pre></td></tr></table></figure></p>
+<p>以上便是关于闭包与setTimeout的一点点总结，欢迎大家积极支持不对和不完整的地方。（轻点喷，谢谢啦！）</p>
 
       
     </div>
@@ -419,8 +427,6 @@
           
             <a href="/tags/面试/" rel="tag"><i class="fa fa-tag"></i> 面试</a>
           
-            <a href="/tags/运行原理/" rel="tag"><i class="fa fa-tag"></i> 运行原理</a>
-          
         </div>
       
 
@@ -432,8 +438,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/28/手写实现简单的promise/" rel="next" title="手写实现简单的promise">
-                <i class="fa fa-chevron-left"></i> 手写实现简单的promise
+              <a href="/2019/05/06/原型链、继承/" rel="next" title="原型链、继承">
+                <i class="fa fa-chevron-left"></i> 原型链、继承
               </a>
             
           </div>
@@ -441,10 +447,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/06/原型链、继承/" rel="prev" title="原型链、继承">
-                原型链、继承 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -599,7 +601,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#动手需知"><span class="nav-number">1.</span> <span class="nav-text">动手需知</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#call的实现"><span class="nav-number">2.</span> <span class="nav-text">call的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apply-的实现"><span class="nav-number">3.</span> <span class="nav-text">apply 的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bind-的实现"><span class="nav-number">4.</span> <span class="nav-text">bind 的实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">1.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包的作用："><span class="nav-number">1.1.</span> <span class="nav-text">闭包的作用：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#setTimeout"><span class="nav-number">2.</span> <span class="nav-text">setTimeout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引申一下："><span class="nav-number">3.</span> <span class="nav-text">引申一下：</span></a></li></ol></div>
             
 
           </div>
