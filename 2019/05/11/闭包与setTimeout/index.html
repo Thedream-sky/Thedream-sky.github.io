@@ -88,7 +88,7 @@
 <meta property="og:description" content="闭包闭包的作用：闭包的本质是一个函数闭包可以访问函数内部变量闭包的存在会使内部变量保留在内存中闭包的应用：1) 模仿块级作用域2) 存储变量（js GC原理，基于javascript中函数作用域链的特点，内部函数保留了对外部函数的活动变量的引用，所以变量不会被释放）， 用于保存比较重要或者计算耗费很大的值。3) 封装私有变量（不直接访问变量） 在了解闭包的作用之前，我们先了解一下 Javascri">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/5/11/16aa27c9e4a47e63?w=456&h=84&f=png&s=6603">
-<meta property="og:updated_time" content="2019-05-10T16:31:10.038Z">
+<meta property="og:updated_time" content="2019-05-10T16:35:48.174Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="闭包与setTimeout">
 <meta name="twitter:description" content="闭包闭包的作用：闭包的本质是一个函数闭包可以访问函数内部变量闭包的存在会使内部变量保留在内存中闭包的应用：1) 模仿块级作用域2) 存储变量（js GC原理，基于javascript中函数作用域链的特点，内部函数保留了对外部函数的活动变量的引用，所以变量不会被释放）， 用于保存比较重要或者计算耗费很大的值。3) 封装私有变量（不直接访问变量） 在了解闭包的作用之前，我们先了解一下 Javascri">
@@ -377,6 +377,7 @@
 <p>不放心的话，可以去MDN里仔细的了解一下：<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/setTimeout" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/Window/setTimeout</a></p>
 <p>如果觉得这么一个的写传入的参数，或者是参数的个数不明确，该怎么传？此时es6里的扩展运算符…可以排上用途了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var i = 1;     </span><br><span class="line">setTimeout(function(...args)&#123;</span><br><span class="line">       console.log(args[0],args[1], args[2]);</span><br><span class="line">   &#125;, i*1000, ...[i, 2*i, 3*i]);</span><br></pre></td></tr></table></figure></p>
 <p>以上便是关于闭包与setTimeout的一点点总结，欢迎大家积极支持不对和不完整的地方。（轻点喷，谢谢啦！）</p>
+<p>参考地址：<br> <a href="https://www.cnblogs.com/onepixel/p/5062456.html" target="_blank" rel="noopener">https://www.cnblogs.com/onepixel/p/5062456.html</a><br> <a href="https://segmentfault.com/a/1190000008681174" target="_blank" rel="noopener">https://segmentfault.com/a/1190000008681174</a> //闭包用途（重要）</p>
 
       
     </div>
