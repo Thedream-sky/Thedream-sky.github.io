@@ -93,7 +93,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/17345926-ca42cd30b7fbbad3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/17345926-a529b22614dd3516.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/17345926-8a78247fa7f8a59b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-04-22T12:48:27.378Z">
+<meta property="og:updated_time" content="2019-05-11T14:49:17.433Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js的执行机制">
 <meta name="twitter:description" content="javascript的运行机制一直困扰在我，对其的运行机制也是一知半解，在看了https://juejin.im/post/59e85eebf265da430d571f89#heading-10这篇文章后，有种茅塞顿开的感觉,下面是原文内容：">
@@ -435,7 +435,7 @@
 <li>同步与异步，同步优先于异步。</li>
 <li>js 是单线程的，同一栈内（即同一等级）的宏任务或者微任务也是按放入的先后顺序执行的（除了是setTimeout这种延迟执行的，得分具体情况。）。</li>
 <li>对宏任务与微任务的理解：一次宏任务执行完之后，再把剩下的微任务全部执行完，才再回执行新的宏任务。（事件循环）理清宏任务以及微任务的关系是理解执行顺序的关键。</li>
-<li>HTML5标准规定<br>setTimeout的最短时间间隔是4毫秒；<br>setInterval的最短间隔时间是10毫秒;<br>也就是说，小于10毫秒的时间间隔会被调整到10毫秒,4毫秒也一样。<br>例如:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> setTimeout(function()&#123;</span><br><span class="line">    console.log(&quot;1&quot;)</span><br><span class="line">&#125;,0.003)</span><br><span class="line"> setTimeout(function()&#123;</span><br><span class="line">    console.log(&quot;2&quot;)</span><br><span class="line">&#125;,0.02)</span><br><span class="line"> setTimeout(function()&#123;</span><br><span class="line">    console.log(&quot;3&quot;)</span><br><span class="line">&#125;,0.01)</span><br></pre></td></tr></table></figure>
+<li>HTML5标准规定<br>setTimeout的最短时间间隔是4毫秒；<br>setInterval的最短间隔时间是10毫秒;<br>也就是说，小于10毫秒的时间间隔会被调整到10毫秒,4毫秒也一样。<br>例如:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> setTimeout(function()&#123;</span><br><span class="line">    console.log(&quot;1&quot;)</span><br><span class="line">&#125;,3)</span><br><span class="line"> setTimeout(function()&#123;</span><br><span class="line">    console.log(&quot;2&quot;)</span><br><span class="line">&#125;,2)</span><br><span class="line"> setTimeout(function()&#123;</span><br><span class="line">    console.log(&quot;3&quot;)</span><br><span class="line">&#125;,1)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>这个结果我们想象中应该是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">// 3、2、1</span><br></pre></td></tr></table></figure></p>
