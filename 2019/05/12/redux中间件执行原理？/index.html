@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="面试,js,运行原理,">
+  <meta name="keywords" content="redux,面试,">
 
 
 
@@ -79,20 +79,18 @@
 
 
 
-<meta name="description" content="call, apply, bind这三个改变this指向的函数经常被用到，无论是开发还是面试。了解其实现原理，是一名合格的前端程序员必备技能。  如果还不知道call, apply, bind的基本用法，请先自行百度">
-<meta name="keywords" content="面试,js,运行原理">
+<meta name="description" content="学习过react的同学肯定都用过redux。了解redux数据流机制的action-&amp;gt;dispatch-&amp;gt;store-&amp;gt;reduce-&amp;gt;页面交互其实很好理解，可是当我们要用到异步请求或者打印日志之类的副操作的时候，我们无法避免的会用到中间件Middleware。中间件都是怎么执行以及如何有序的串在一起很令人迷惑，下面我将尝试解释这个过程：">
+<meta name="keywords" content="redux,面试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="手写call、apply和bind">
-<meta property="og:url" content="http://Thedream-sky.github.io/2019/05/03/手写call、apply和bind/index.html">
+<meta property="og:title" content="redux中间件执行原理？">
+<meta property="og:url" content="http://Thedream-sky.github.io/2019/05/12/redux中间件执行原理？/index.html">
 <meta property="og:site_name" content="寻梦人的个人博客">
-<meta property="og:description" content="call, apply, bind这三个改变this指向的函数经常被用到，无论是开发还是面试。了解其实现原理，是一名合格的前端程序员必备技能。  如果还不知道call, apply, bind的基本用法，请先自行百度">
+<meta property="og:description" content="学习过react的同学肯定都用过redux。了解redux数据流机制的action-&amp;gt;dispatch-&amp;gt;store-&amp;gt;reduce-&amp;gt;页面交互其实很好理解，可是当我们要用到异步请求或者打印日志之类的副操作的时候，我们无法避免的会用到中间件Middleware。中间件都是怎么执行以及如何有序的串在一起很令人迷惑，下面我将尝试解释这个过程：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/17345926-9a517d793c10c7c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-05-02T17:39:06.101Z">
+<meta property="og:updated_time" content="2019-05-12T11:03:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="手写call、apply和bind">
-<meta name="twitter:description" content="call, apply, bind这三个改变this指向的函数经常被用到，无论是开发还是面试。了解其实现原理，是一名合格的前端程序员必备技能。  如果还不知道call, apply, bind的基本用法，请先自行百度">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/17345926-9a517d793c10c7c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="redux中间件执行原理？">
+<meta name="twitter:description" content="学习过react的同学肯定都用过redux。了解redux数据流机制的action-&amp;gt;dispatch-&amp;gt;store-&amp;gt;reduce-&amp;gt;页面交互其实很好理解，可是当我们要用到异步请求或者打印日志之类的副操作的时候，我们无法避免的会用到中间件Middleware。中间件都是怎么执行以及如何有序的串在一起很令人迷惑，下面我将尝试解释这个过程：">
 
 
 
@@ -122,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://Thedream-sky.github.io/2019/05/03/手写call、apply和bind/">
+  <link rel="canonical" href="http://Thedream-sky.github.io/2019/05/12/redux中间件执行原理？/">
 
 
 
 
 
-  <title>手写call、apply和bind | 寻梦人的个人博客</title>
+  <title>redux中间件执行原理？ | 寻梦人的个人博客</title>
   
 
 
@@ -268,7 +266,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Thedream-sky.github.io/2019/05/03/手写call、apply和bind/">
+    <link itemprop="mainEntityOfPage" href="http://Thedream-sky.github.io/2019/05/12/redux中间件执行原理？/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="寻梦人">
@@ -285,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">手写call、apply和bind</h1>
+          <h1 class="post-title" itemprop="name headline">redux中间件执行原理？</h1>
         
 
         <div class="post-meta">
@@ -297,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T01:24:58+08:00">
-                2019-05-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-12T18:57:36+08:00">
+                2019-05-12
               </time>
             
 
@@ -357,18 +355,19 @@
       
 
       
-        <p>call, apply, bind这三个改变this指向的函数经常被用到，无论是开发还是面试。了解其实现原理，是一名合格的前端程序员必备技能。</p>
-<ul>
-<li>如果还不知道call, apply, bind的基本用法，请先自行百度<a id="more"></a>
-<h2 id="动手需知"><a href="#动手需知" class="headerlink" title="动手需知"></a>动手需知</h2>在自行实现这几个方法前，你得知道几个基本的知识点：</li>
-<li>arguments是什么？<br>借用MDN的说法：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/arguments" target="_blank" rel="noopener">arguments对象是所有（非箭头）函数中都可用的局部变量。你可以使用arguments对象在函数中引用函数的参数。此对象包含传递给函数的每个参数</a></li>
-<li>slice的用法：slice(index)代表从下标index开始截取数组。（其他用法自行查询去）<br>那么接下来就是见证奇迹的时刻了。</li>
-</ul>
-<h2 id="call的实现"><a href="#call的实现" class="headerlink" title="call的实现"></a>call的实现</h2><p>call的关键两点： 1、改变上下文指向； 2、传入多个参数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Function.propoType.myCall = function(content)&#123;</span><br><span class="line">  // call方法只能是方法才能调用</span><br><span class="line">  if(typeof this !== &quot;function&quot;)&#123;</span><br><span class="line">   throw new TypeError（&quot;Error&quot;）;</span><br><span class="line">  &#125;</span><br><span class="line">  // 如果没有指定上下文，默认是全局对象window</span><br><span class="line">  // 不要写成this.window。当this指向发生变化，可能找不到全局对象window</span><br><span class="line">  content = content || window;</span><br><span class="line">  let fn = Symbol(content);          // 避免属性重复</span><br><span class="line">  let args = [...arguments].slice(1)</span><br><span class="line">  //改变this指向</span><br><span class="line">  content[fn] = this; //给content添加一个方法 指向this</span><br><span class="line">  let result = content[fn](...args);  //传入参数</span><br><span class="line">  delete content[fn];                     // 删除fn 方法，一个中间变量用完删除</span><br><span class="line">  return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="apply-的实现"><a href="#apply-的实现" class="headerlink" title="apply 的实现"></a>apply 的实现</h2><p>apply的关键两点：1、改变上下文指向； 2、传入参数数组。<br>在实现原理上基本和call差不多，主要是参数的区别。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Function.propoType.myApply = function(content)&#123;</span><br><span class="line">  // apply方法只能是方法才能调用</span><br><span class="line">  if(typeof this !== &quot;function&quot;)&#123;</span><br><span class="line">   throw new TypeError（&quot;Error&quot;）;</span><br><span class="line">  &#125;</span><br><span class="line">  // 如果没有指定上下文，默认是全局对象window</span><br><span class="line">  // 不要写成this.window。当this指向发生变化，可能找不到全局对象window</span><br><span class="line">  content = content || window;</span><br><span class="line">  let fn = Symbol(content);          // 避免属性重复</span><br><span class="line">  let args = [...arguments][1];      // 记住传入的是数组！！！</span><br><span class="line"> //改变this指向</span><br><span class="line">  content[fn] = this; //给content添加一个方法 指向this</span><br><span class="line">  let result ; </span><br><span class="line">  if(args)&#123;</span><br><span class="line">     result = content[fn](...args);  //传入参数</span><br><span class="line">  &#125;else&#123;</span><br><span class="line">    result = content[fn]();  //传入参数</span><br><span class="line">  &#125;</span><br><span class="line">  delete content[fn];                     // 删除fn 方法，一个中间变量用完删除</span><br><span class="line">  return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="bind-的实现"><a href="#bind-的实现" class="headerlink" title="bind 的实现"></a>bind 的实现</h2><p>bind 的关键几点：1、改变上下文指向；2、传入多个参数；3、返回的是函数的方法名，不会立即执行。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Function.propoType.myBind = function(content)&#123;</span><br><span class="line">    self = this;</span><br><span class="line">  // bind方法只能是方法才能调用</span><br><span class="line">  if(typeof this !== &quot;function&quot;)&#123;</span><br><span class="line">   throw new TypeError（&quot;Error&quot;）;</span><br><span class="line">  &#125;</span><br><span class="line">  // 可以支持柯里化传参，保存参数</span><br><span class="line">  args = [...arguments].slice(1);</span><br><span class="line">  function Fn ()&#123;</span><br><span class="line"> // 考虑需要绑定的函数可能是构造函数，this不会被绑定，但是参数仍然会传递。</span><br><span class="line">      if(this instanceof Fn)&#123;</span><br><span class="line">          return self(...args.concat(...arguments));//构造函数直接传参</span><br><span class="line">      &#125;else&#123;</span><br><span class="line">          return self.apply(content,args.concat(...arguments));// apply传的是数组</span><br><span class="line">     &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return Fn;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">let Person = &#123;</span><br><span class="line">    name: &apos;Tom&apos;,</span><br><span class="line">    say(x, y) &#123;</span><br><span class="line">        //console.log(this)</span><br><span class="line">        console.log(`我叫$&#123;this.name&#125;$&#123;x&#125;$&#123;y&#125;`)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">Person1 = &#123;</span><br><span class="line">    name: &apos;Tom1&apos;</span><br><span class="line">&#125;</span><br><span class="line">Person.say.myCall(Person1, &apos; call你干嘛&apos;, &apos; 哈哈哈&apos;);</span><br><span class="line">Person.say.myApply(Person1, [&apos; apply你干嘛&apos;, &apos; 哈哈哈&apos;,]);</span><br><span class="line">Person.say.myBind(Person1, &apos; bind你干嘛&apos;, &apos; 哈哈哈kk&apos;)()</span><br></pre></td></tr></table></figure></p>
-<p>执行结果：<br><img src="https://upload-images.jianshu.io/upload_images/17345926-9a517d793c10c7c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="结果"><br>结果完美呈现，以上便是call, apply, bind的简单实现。</p>
+        <p>学习过react的同学肯定都用过redux。了解redux数据流机制的action-&gt;dispatch-&gt;store-&gt;reduce-&gt;页面交互其实很好理解，可是当我们要用到异步请求或者打印日志之类的副操作的时候，我们无法避免的会用到中间件Middleware。中间件都是怎么执行以及如何有序的串在一起很令人迷惑，下面我将尝试解释这个过程：</p>
+<a id="more"></a>
+<h2 id="演变过程"><a href="#演变过程" class="headerlink" title="演变过程"></a>演变过程</h2><p>假如你有个需求需要在分发dispatch前后打印不同状态值，你肯定会这么想：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.log(&apos;dispatching&apos;, action)</span><br><span class="line">store.dispatch(action)</span><br><span class="line">console.log(&apos;next state&apos;, store.getState())</span><br></pre></td></tr></table></figure></p>
+<p>封装成函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function dispatchAndLog(store, action) &#123;</span><br><span class="line">  console.log(&apos;dispatching&apos;, action)</span><br><span class="line">  store.dispatch(action)</span><br><span class="line">  console.log(&apos;next state&apos;, store.getState())</span><br><span class="line">&#125;</span><br><span class="line">//执行</span><br><span class="line">dispatchAndLog(store,  action)</span><br></pre></td></tr></table></figure></p>
+<p>不妨改造store的dispatch更为直接些：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let next = store.dispatch</span><br><span class="line">store.dispatch = function dispatchAndLog(action) &#123;</span><br><span class="line">  console.log(&apos;dispatching&apos;, action)</span><br><span class="line">  let result = next(action)</span><br><span class="line">  console.log(&apos;next state&apos;, store.getState())</span><br><span class="line">  return result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Redux把这个封装的入口写成了一个函数，就叫applyMiddleware。由此我们明白了applyMiddleware的功能：改造dispatch函数，产生真假dispatch，而中间件就是运行在假真（dispatchAndLog假和next真）之间的代码。</p>
+<p>这里我们要对applyMiddleware进行一个准确的定义，它只是一个用来加工dispatch的工厂，而要加工什么样的dispatch出来，则需要我们传入对应的中间件函数（比如上例中的dispatchAndLog），下面我们构造一个精简版的applyMiddleware：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function applyMiddleware(middleware)&#123;</span><br><span class="line">  let next = store.dispatch;</span><br><span class="line">  store.dispatch = middleware(store)(next);  // 这里传入store，是因为中间件中有可能会用到getState获取数据，比如打印当前用户等需求 </span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">applyMiddleware(dispatchAndLog)</span><br></pre></td></tr></table></figure></p>
+<h2 id="中间串连"><a href="#中间串连" class="headerlink" title="中间串连"></a>中间串连</h2><p>中间件的功能各不相同，它们都要融入到dispatch中，在派发action的时候，按照顺序一个个的执行，这是一个费脑经的事情。在上例中middleware会返回新的dispatch，我们需要做的也就是将产生的新的dispatch传递个下个中间件即可。如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function applyMiddleware(middleware，middleware2)&#123;</span><br><span class="line">  let next = store.dispatch;</span><br><span class="line">  store.dispatch = middleware2(middleware(store)(next));  </span><br><span class="line">  // 这里传入store，是因为中间件中有可能会用到getState获取数据，比如打印当前用户等需求 </span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">applyMiddleware(dispatchAndLog，dispatchmethed)</span><br></pre></td></tr></table></figure></p>
+<p>以此类推有大量的中间件的时候我们可以这么干：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function applyMiddleware（...middlewares）&#123;</span><br><span class="line">    middlewares = middlewares.slice();</span><br><span class="line">    middlewares.reverse();  //执行顺序是后到前，所以得倒置</span><br><span class="line">    let dispatch = store.dispatch</span><br><span class="line">    //循环嵌套</span><br><span class="line">    middlewares.foreach(function(middleware)&#123;</span><br><span class="line">        dispatch = middleware(store)(dispatch);</span><br><span class="line">    &#125;);</span><br><span class="line">    return  Object.assign(&#123;&#125;, store, &#123; dispatch &#125;); //合并dispatch到redux里。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>请注意这里是一个循环嵌套的一个过程，所以中间的顺序决定着中间件的执行顺序。</p>
+<p>总结两点：</p>
+<p>1) 中间件在执行完副操作会并会返回新的dispatch<br>2) applyMiddleware本质是一个循环嵌套调用的过程。</p>
+<p>参考：<a href="https://zhuanlan.zhihu.com/p/34651008" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/34651008</a></p>
 
       
     </div>
@@ -415,11 +414,9 @@
       
         <div class="post-tags">
           
+            <a href="/tags/redux/" rel="tag"><i class="fa fa-tag"></i> redux</a>
+          
             <a href="/tags/面试/" rel="tag"><i class="fa fa-tag"></i> 面试</a>
-          
-            <a href="/tags/js/" rel="tag"><i class="fa fa-tag"></i> js</a>
-          
-            <a href="/tags/运行原理/" rel="tag"><i class="fa fa-tag"></i> 运行原理</a>
           
         </div>
       
@@ -432,8 +429,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/28/手写实现简单的promise/" rel="next" title="手写实现简单的promise">
-                <i class="fa fa-chevron-left"></i> 手写实现简单的promise
+              <a href="/2019/05/11/闭包与setTimeout/" rel="next" title="闭包与setTimeout">
+                <i class="fa fa-chevron-left"></i> 闭包与setTimeout
               </a>
             
           </div>
@@ -441,10 +438,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/06/原型链、继承/" rel="prev" title="原型链、继承">
-                原型链、继承 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -599,7 +592,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#动手需知"><span class="nav-number">1.</span> <span class="nav-text">动手需知</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#call的实现"><span class="nav-number">2.</span> <span class="nav-text">call的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apply-的实现"><span class="nav-number">3.</span> <span class="nav-text">apply 的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bind-的实现"><span class="nav-number">4.</span> <span class="nav-text">bind 的实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#演变过程"><span class="nav-number">1.</span> <span class="nav-text">演变过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中间串连"><span class="nav-number">2.</span> <span class="nav-text">中间串连</span></a></li></ol></div>
             
 
           </div>
