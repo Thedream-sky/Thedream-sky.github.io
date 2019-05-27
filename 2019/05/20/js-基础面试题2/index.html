@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="js,面试,运行原理,">
+  <meta name="keywords" content="js,面试,">
 
 
 
@@ -79,20 +79,18 @@
 
 
 
-<meta name="description" content="call, apply, bind这三个改变this指向的函数经常被用到，无论是开发还是面试。了解其实现原理，是一名合格的前端程序员必备技能。  如果还不知道call, apply, bind的基本用法，请先自行百度">
-<meta name="keywords" content="js,面试,运行原理">
+<meta name="description" content="javascript逻辑运算符“||”和“&amp;amp;&amp;amp;”参考地址：https://www.cnblogs.com/pigtail/archive/2012/03/09/2387486.html 1) 只要“||”前面为false，无论“||”后面是true还是false，结果都返回“||”后面的值。 2) 只要“||”前面为true，无论“||”后面是true还是false，结果都返回“|">
+<meta name="keywords" content="js,面试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="手写call、apply和bind">
-<meta property="og:url" content="http://Thedream-sky.github.io/2019/05/03/手写call、apply和bind/index.html">
+<meta property="og:title" content="js-基础面试题2">
+<meta property="og:url" content="http://Thedream-sky.github.io/2019/05/20/js-基础面试题2/index.html">
 <meta property="og:site_name" content="寻梦人的个人博客">
-<meta property="og:description" content="call, apply, bind这三个改变this指向的函数经常被用到，无论是开发还是面试。了解其实现原理，是一名合格的前端程序员必备技能。  如果还不知道call, apply, bind的基本用法，请先自行百度">
+<meta property="og:description" content="javascript逻辑运算符“||”和“&amp;amp;&amp;amp;”参考地址：https://www.cnblogs.com/pigtail/archive/2012/03/09/2387486.html 1) 只要“||”前面为false，无论“||”后面是true还是false，结果都返回“||”后面的值。 2) 只要“||”前面为true，无论“||”后面是true还是false，结果都返回“|">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/17345926-9a517d793c10c7c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-05-02T17:39:06.101Z">
+<meta property="og:updated_time" content="2019-05-20T15:57:54.058Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="手写call、apply和bind">
-<meta name="twitter:description" content="call, apply, bind这三个改变this指向的函数经常被用到，无论是开发还是面试。了解其实现原理，是一名合格的前端程序员必备技能。  如果还不知道call, apply, bind的基本用法，请先自行百度">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/17345926-9a517d793c10c7c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="js-基础面试题2">
+<meta name="twitter:description" content="javascript逻辑运算符“||”和“&amp;amp;&amp;amp;”参考地址：https://www.cnblogs.com/pigtail/archive/2012/03/09/2387486.html 1) 只要“||”前面为false，无论“||”后面是true还是false，结果都返回“||”后面的值。 2) 只要“||”前面为true，无论“||”后面是true还是false，结果都返回“|">
 
 
 
@@ -122,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://Thedream-sky.github.io/2019/05/03/手写call、apply和bind/">
+  <link rel="canonical" href="http://Thedream-sky.github.io/2019/05/20/js-基础面试题2/">
 
 
 
 
 
-  <title>手写call、apply和bind | 寻梦人的个人博客</title>
+  <title>js-基础面试题2 | 寻梦人的个人博客</title>
   
 
 
@@ -268,7 +266,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Thedream-sky.github.io/2019/05/03/手写call、apply和bind/">
+    <link itemprop="mainEntityOfPage" href="http://Thedream-sky.github.io/2019/05/20/js-基础面试题2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="寻梦人">
@@ -285,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">手写call、apply和bind</h1>
+          <h1 class="post-title" itemprop="name headline">js-基础面试题2</h1>
         
 
         <div class="post-meta">
@@ -297,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T01:24:58+08:00">
-                2019-05-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-20T21:46:27+08:00">
+                2019-05-20
               </time>
             
 
@@ -357,18 +355,25 @@
       
 
       
-        <p>call, apply, bind这三个改变this指向的函数经常被用到，无论是开发还是面试。了解其实现原理，是一名合格的前端程序员必备技能。</p>
-<ul>
-<li>如果还不知道call, apply, bind的基本用法，请先自行百度<a id="more"></a>
-<h2 id="动手需知"><a href="#动手需知" class="headerlink" title="动手需知"></a>动手需知</h2>在自行实现这几个方法前，你得知道几个基本的知识点：</li>
-<li>arguments是什么？<br>借用MDN的说法：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/arguments" target="_blank" rel="noopener">arguments对象是所有（非箭头）函数中都可用的局部变量。你可以使用arguments对象在函数中引用函数的参数。此对象包含传递给函数的每个参数</a></li>
-<li>slice的用法：slice(index)代表从下标index开始截取数组。（其他用法自行查询去）<br>那么接下来就是见证奇迹的时刻了。</li>
+        <h2 id="javascript逻辑运算符“-”和“-amp-amp-”"><a href="#javascript逻辑运算符“-”和“-amp-amp-”" class="headerlink" title="javascript逻辑运算符“||”和“&amp;&amp;”"></a>javascript逻辑运算符“||”和“&amp;&amp;”</h2><p>参考地址：<a href="https://www.cnblogs.com/pigtail/archive/2012/03/09/2387486.html" target="_blank" rel="noopener">https://www.cnblogs.com/pigtail/archive/2012/03/09/2387486.html</a></p>
+<p>1) 只要“||”前面为false，无论“||”后面是true还是false，结果都返回“||”后面的值。</p>
+<p>2) 只要“||”前面为true，无论“||”后面是true还是false，结果都返回“||”前面的值。</p>
+<p>3) 只要“&amp;&amp;”前面是false，无论“&amp;&amp;”后面是true还是false，结果都将返“&amp;&amp;”前面的值;</p>
+<p>4) 只要“&amp;&amp;”前面是true，无论“&amp;&amp;”后面是true还是false，结果都将返“&amp;&amp;”后面的值;<br>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1&amp;&amp;7 // 7</span><br><span class="line">-1&amp;&amp;9 // 9</span><br><span class="line">0&amp;&amp;9 // 0</span><br><span class="line">0&amp;&amp;8 // 0</span><br><span class="line"></span><br><span class="line">1||9 // 1</span><br><span class="line">1||3 // 1</span><br><span class="line">0||9 // 9</span><br><span class="line">0||3 // 3</span><br></pre></td></tr></table></figure>
+<h2 id="实例的构造函数-constructor-与原型的关系"><a href="#实例的构造函数-constructor-与原型的关系" class="headerlink" title="实例的构造函数 constructor 与原型的关系"></a>实例的构造函数 constructor 与原型的关系</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function A () &#123;&#125;;</span><br><span class="line">function B () &#123;&#125;;</span><br><span class="line">B.prototype = new A();</span><br><span class="line">var a = new A();</span><br><span class="line">var b = new B();</span><br><span class="line">console.log(a.constructor); // A</span><br><span class="line">console.log(b.constructor); // A</span><br></pre></td></tr></table></figure>
+<p>当实例在自身找不到 constructor，会向原型寻找 constructor。那为什么b的constructor不是B，而是指向A呢？我们可以这么理解，原型被改变，原型的constructor指向原型本身的构造函数，也就是说constructor属于原型，而不是原型对象的属性。</p>
+<h2 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h2><p>事件委托，通俗地来讲，就是把一个元素响应事件（click、keydown……）的函数委托到另一个元素；<br>比如一个消息列表，有n多条回话，同时还是动态。你需要点击item响应跳转不同的回话。如果给每条元素添加监听事件，势必会消耗大量的性能。这时候就需要事件委托来做这件事。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">document.getElementById(&apos;wraper&apos;).addEventListener(&apos;click&apos;, function (e) &#123;</span><br><span class="line">  var target = e.target</span><br><span class="line">  if (target.nodeName.toLocaleLowerCase() === &apos;li&apos;) &#123;</span><br><span class="line">    console.log(target.innerHTML);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>如上代码中wraper是父组件，将事件委托给它，我们只需要判断e.target响应的对象进行处理就行。事件委托就是这个意思。</p>
+<h2 id="let与var的区别"><a href="#let与var的区别" class="headerlink" title="let与var的区别"></a>let与var的区别</h2><p>先来看两个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var a = 100;</span><br><span class="line">function test()&#123;</span><br><span class="line">    console.log(a);</span><br><span class="line">    var a = 10;</span><br><span class="line">    console.log(a);</span><br><span class="line">&#125;</span><br><span class="line">test() // undefined 10</span><br></pre></td></tr></table></figure></p>
+<p>在看这个：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var a = 100;</span><br><span class="line">function test()&#123;</span><br><span class="line">    console.log(a);</span><br><span class="line">    let a = 10;</span><br><span class="line">    console.log(a);</span><br><span class="line">&#125;</span><br><span class="line">test() // 报错</span><br></pre></td></tr></table></figure></p>
+<p>在第二个例子里，由于let不存在状态提升，所以导致a在函数作用域里是没有被声明的，所以报错。在这两例中，全局a只有在函数作用域里没有a的声明时，全局a才有效。</p>
+<h2 id="react-的-setState-哪些情况下是同步的。"><a href="#react-的-setState-哪些情况下是同步的。" class="headerlink" title="react 的 setState 哪些情况下是同步的。"></a>react 的 setState 哪些情况下是同步的。</h2><ul>
+<li>原生事件里使用 setState,能拿到最新的值</li>
+<li>setTimeout里使用setState，能够拿到最新的值。 </li>
 </ul>
-<h2 id="call的实现"><a href="#call的实现" class="headerlink" title="call的实现"></a>call的实现</h2><p>call的关键两点： 1、改变上下文指向； 2、传入多个参数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Function.propoType.myCall = function(content)&#123;</span><br><span class="line">  // call方法只能是方法才能调用</span><br><span class="line">  if(typeof this !== &quot;function&quot;)&#123;</span><br><span class="line">   throw new TypeError（&quot;Error&quot;）;</span><br><span class="line">  &#125;</span><br><span class="line">  // 如果没有指定上下文，默认是全局对象window</span><br><span class="line">  // 不要写成this.window。当this指向发生变化，可能找不到全局对象window</span><br><span class="line">  content = content || window;</span><br><span class="line">  let fn = Symbol(content);          // 避免属性重复</span><br><span class="line">  let args = [...arguments].slice(1)</span><br><span class="line">  //改变this指向</span><br><span class="line">  content[fn] = this; //给content添加一个方法 指向this</span><br><span class="line">  let result = content[fn](...args);  //传入参数</span><br><span class="line">  delete content[fn];                     // 删除fn 方法，一个中间变量用完删除</span><br><span class="line">  return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="apply-的实现"><a href="#apply-的实现" class="headerlink" title="apply 的实现"></a>apply 的实现</h2><p>apply的关键两点：1、改变上下文指向； 2、传入参数数组。<br>在实现原理上基本和call差不多，主要是参数的区别。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Function.propoType.myApply = function(content)&#123;</span><br><span class="line">  // apply方法只能是方法才能调用</span><br><span class="line">  if(typeof this !== &quot;function&quot;)&#123;</span><br><span class="line">   throw new TypeError（&quot;Error&quot;）;</span><br><span class="line">  &#125;</span><br><span class="line">  // 如果没有指定上下文，默认是全局对象window</span><br><span class="line">  // 不要写成this.window。当this指向发生变化，可能找不到全局对象window</span><br><span class="line">  content = content || window;</span><br><span class="line">  let fn = Symbol(content);          // 避免属性重复</span><br><span class="line">  let args = [...arguments][1];      // 记住传入的是数组！！！</span><br><span class="line"> //改变this指向</span><br><span class="line">  content[fn] = this; //给content添加一个方法 指向this</span><br><span class="line">  let result ; </span><br><span class="line">  if(args)&#123;</span><br><span class="line">     result = content[fn](...args);  //传入参数</span><br><span class="line">  &#125;else&#123;</span><br><span class="line">    result = content[fn]();  //传入参数</span><br><span class="line">  &#125;</span><br><span class="line">  delete content[fn];                     // 删除fn 方法，一个中间变量用完删除</span><br><span class="line">  return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="bind-的实现"><a href="#bind-的实现" class="headerlink" title="bind 的实现"></a>bind 的实现</h2><p>bind 的关键几点：1、改变上下文指向；2、传入多个参数；3、返回的是函数的方法名，不会立即执行。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Function.propoType.myBind = function(content)&#123;</span><br><span class="line">    self = this;</span><br><span class="line">  // bind方法只能是方法才能调用</span><br><span class="line">  if(typeof this !== &quot;function&quot;)&#123;</span><br><span class="line">   throw new TypeError（&quot;Error&quot;）;</span><br><span class="line">  &#125;</span><br><span class="line">  // 可以支持柯里化传参，保存参数</span><br><span class="line">  args = [...arguments].slice(1);</span><br><span class="line">  function Fn ()&#123;</span><br><span class="line"> // 考虑需要绑定的函数可能是构造函数，this不会被绑定，但是参数仍然会传递。</span><br><span class="line">      if(this instanceof Fn)&#123;</span><br><span class="line">          return self(...args.concat(...arguments));//构造函数直接传参</span><br><span class="line">      &#125;else&#123;</span><br><span class="line">          return self.apply(content,args.concat(...arguments));// apply传的是数组</span><br><span class="line">     &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return Fn;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">let Person = &#123;</span><br><span class="line">    name: &apos;Tom&apos;,</span><br><span class="line">    say(x, y) &#123;</span><br><span class="line">        //console.log(this)</span><br><span class="line">        console.log(`我叫$&#123;this.name&#125;$&#123;x&#125;$&#123;y&#125;`)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">Person1 = &#123;</span><br><span class="line">    name: &apos;Tom1&apos;</span><br><span class="line">&#125;</span><br><span class="line">Person.say.myCall(Person1, &apos; call你干嘛&apos;, &apos; 哈哈哈&apos;);</span><br><span class="line">Person.say.myApply(Person1, [&apos; apply你干嘛&apos;, &apos; 哈哈哈&apos;,]);</span><br><span class="line">Person.say.myBind(Person1, &apos; bind你干嘛&apos;, &apos; 哈哈哈kk&apos;)()</span><br></pre></td></tr></table></figure></p>
-<p>执行结果：<br><img src="https://upload-images.jianshu.io/upload_images/17345926-9a517d793c10c7c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="结果"><br>结果完美呈现，以上便是call, apply, bind的简单实现。</p>
+<p>参考： <a href="https://juejin.im/post/5b45c57c51882519790c7441#heading-3" target="_blank" rel="noopener">https://juejin.im/post/5b45c57c51882519790c7441#heading-3</a></p>
 
       
     </div>
@@ -419,8 +424,6 @@
           
             <a href="/tags/面试/" rel="tag"><i class="fa fa-tag"></i> 面试</a>
           
-            <a href="/tags/运行原理/" rel="tag"><i class="fa fa-tag"></i> 运行原理</a>
-          
         </div>
       
 
@@ -432,8 +435,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/28/手写实现简单的promise/" rel="next" title="手写实现简单的promise">
-                <i class="fa fa-chevron-left"></i> 手写实现简单的promise
+              <a href="/2019/05/18/http-https-协议/" rel="next" title="http/https 协议">
+                <i class="fa fa-chevron-left"></i> http/https 协议
               </a>
             
           </div>
@@ -441,10 +444,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/06/原型链、继承/" rel="prev" title="原型链、继承">
-                原型链、继承 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -599,7 +598,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#动手需知"><span class="nav-number">1.</span> <span class="nav-text">动手需知</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#call的实现"><span class="nav-number">2.</span> <span class="nav-text">call的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apply-的实现"><span class="nav-number">3.</span> <span class="nav-text">apply 的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bind-的实现"><span class="nav-number">4.</span> <span class="nav-text">bind 的实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#javascript逻辑运算符“-”和“-amp-amp-”"><span class="nav-number">1.</span> <span class="nav-text">javascript逻辑运算符“||”和“&amp;&amp;”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例的构造函数-constructor-与原型的关系"><span class="nav-number">2.</span> <span class="nav-text">实例的构造函数 constructor 与原型的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件委托"><span class="nav-number">3.</span> <span class="nav-text">事件委托</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#let与var的区别"><span class="nav-number">4.</span> <span class="nav-text">let与var的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#react-的-setState-哪些情况下是同步的。"><span class="nav-number">5.</span> <span class="nav-text">react 的 setState 哪些情况下是同步的。</span></a></li></ol></div>
             
 
           </div>

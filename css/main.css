@@ -1823,7 +1823,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff2939;
+  background: #182aff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3123,7 +3123,6 @@ pre .javascript .function {
   }
 }
 body {
-  background: url("https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/image/blogBg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
