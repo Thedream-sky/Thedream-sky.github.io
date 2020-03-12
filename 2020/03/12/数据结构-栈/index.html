@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="面试,js,">
+  <meta name="keywords" content="数据结构,栈,">
 
 
 
@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="闭包闭包的作用： 闭包的本质是一个函数 闭包可以访问函数内部变量 闭包的存在会使内部变量保留在内存中">
-<meta name="keywords" content="面试,js">
+<meta name="description" content="前言众所周知，数据结构是计算机的基础，也是重中之中。计算机专业的童鞋们大学肯定都学过，然而大学教材基本上都是使用c语言或者c++来讲解数据结构，对于我们前端的童鞋们来说，并没那么容易理解，加之大学期间阅历有限，很多同学也没意识到数据结构的重要性，学的也是一知半解。为了方便前端同学理解，大家共同学习的目的，接下来我将使用javascript实现代码，出一个数据结构的专题。我也是边总结边学习，有不当之">
+<meta name="keywords" content="数据结构,栈">
 <meta property="og:type" content="article">
-<meta property="og:title" content="闭包与setTimeout">
-<meta property="og:url" content="http://Thedream-sky.github.io/2019/05/11/闭包与setTimeout/index.html">
+<meta property="og:title" content="数据结构-栈">
+<meta property="og:url" content="http://Thedream-sky.github.io/2020/03/12/数据结构-栈/index.html">
 <meta property="og:site_name" content="寻梦人的个人博客">
-<meta property="og:description" content="闭包闭包的作用： 闭包的本质是一个函数 闭包可以访问函数内部变量 闭包的存在会使内部变量保留在内存中">
+<meta property="og:description" content="前言众所周知，数据结构是计算机的基础，也是重中之中。计算机专业的童鞋们大学肯定都学过，然而大学教材基本上都是使用c语言或者c++来讲解数据结构，对于我们前端的童鞋们来说，并没那么容易理解，加之大学期间阅历有限，很多同学也没意识到数据结构的重要性，学的也是一知半解。为了方便前端同学理解，大家共同学习的目的，接下来我将使用javascript实现代码，出一个数据结构的专题。我也是边总结边学习，有不当之">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/5/11/16aa27c9e4a47e63?w=456&h=84&f=png&s=6603">
-<meta property="og:updated_time" content="2019-05-11T15:13:27.053Z">
+<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200312151637.png">
+<meta property="og:updated_time" content="2020-03-12T07:53:43.911Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="闭包与setTimeout">
-<meta name="twitter:description" content="闭包闭包的作用： 闭包的本质是一个函数 闭包可以访问函数内部变量 闭包的存在会使内部变量保留在内存中">
-<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/5/11/16aa27c9e4a47e63?w=456&h=84&f=png&s=6603">
+<meta name="twitter:title" content="数据结构-栈">
+<meta name="twitter:description" content="前言众所周知，数据结构是计算机的基础，也是重中之中。计算机专业的童鞋们大学肯定都学过，然而大学教材基本上都是使用c语言或者c++来讲解数据结构，对于我们前端的童鞋们来说，并没那么容易理解，加之大学期间阅历有限，很多同学也没意识到数据结构的重要性，学的也是一知半解。为了方便前端同学理解，大家共同学习的目的，接下来我将使用javascript实现代码，出一个数据结构的专题。我也是边总结边学习，有不当之">
+<meta name="twitter:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200312151637.png">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://Thedream-sky.github.io/2019/05/11/闭包与setTimeout/">
+  <link rel="canonical" href="http://Thedream-sky.github.io/2020/03/12/数据结构-栈/">
 
 
 
 
 
-  <title>闭包与setTimeout | 寻梦人的个人博客</title>
+  <title>数据结构-栈 | 寻梦人的个人博客</title>
   
 
 
@@ -268,7 +268,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Thedream-sky.github.io/2019/05/11/闭包与setTimeout/">
+    <link itemprop="mainEntityOfPage" href="http://Thedream-sky.github.io/2020/03/12/数据结构-栈/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="寻梦人">
@@ -285,7 +285,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">闭包与setTimeout</h1>
+          <h1 class="post-title" itemprop="name headline">数据结构-栈</h1>
         
 
         <div class="post-meta">
@@ -297,8 +297,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-11T00:28:01+08:00">
-                2019-05-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-12T13:05:38+08:00">
+                2020-03-12
               </time>
             
 
@@ -320,8 +320,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
                   </a>
                 </span>
 
@@ -357,32 +357,11 @@
       
 
       
-        <h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><h3 id="闭包的作用："><a href="#闭包的作用：" class="headerlink" title="闭包的作用："></a>闭包的作用：</h3><ul>
-<li>闭包的本质是一个函数</li>
-<li>闭包可以访问函数内部变量</li>
-<li>闭包的存在会使内部变量保留在内存中<a id="more"></a>
-闭包的应用：<br>1) 模仿块级作用域<br>2) 存储变量（js GC原理，基于javascript中函数作用域链的特点，内部函数保留了对外部函数的活动变量的引用，所以变量不会被释放）， 用于保存比较重要或者计算耗费很大的值。<br>3) 封装私有变量（不直接访问变量）</li>
-</ul>
-<p>在了解闭包的作用之前，我们先了解一下 Javascript 中的 GC 机制:</p>
-<p>在 Javascript 中，<font style="color: red">如果一个对象不再被引用，那么这个对象就会被 GC 回收，否则这个对象一直会保存在内存中。</font></p>
-<p>在下述例子中，B 定义在 A 中，因此 B 依赖于 A ,而外部变量 C 又引用了 B , 所以A间接的被 C 引用。</p>
-<p>也就是说，A 不会被 GC 回收，会一直保存在内存中。：<br>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function A() &#123;</span><br><span class="line">    var count = 0;</span><br><span class="line">    function B() &#123;</span><br><span class="line">       count ++;</span><br><span class="line">       console.log(count);</span><br><span class="line">    &#125;</span><br><span class="line">    return B;</span><br><span class="line">&#125;</span><br><span class="line">var C = A();</span><br><span class="line">C();// 1</span><br><span class="line">C();// 2</span><br><span class="line">C();// 3</span><br></pre></td></tr></table></figure></p>
-<p>() 等价于 （A（））（）,为了访问函数内部的函数，并且隐藏内部的函数信息得到需要的结果。<br>高级写法：匿名函数的写法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(function (s)&#123;...&#125;)(s)等价于</span><br><span class="line"></span><br><span class="line">function A()&#123;</span><br><span class="line">function B(s)&#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line">return B;</span><br><span class="line">&#125;;</span><br><span class="line">//相对于</span><br><span class="line">function(s)&#123;...&#125; === B === A();</span><br><span class="line">B(s) === (function(s)&#123;...&#125;)(s)= (A())(s);</span><br></pre></td></tr></table></figure></p>
-<p>这里很明显可以看到外面可以访问函数内部的变量，这是闭包的一个很重要的功能。</p>
-<p>什么是闭包？所谓闭包就是利用函数的局部作用域的特性（函数内部的函数可以访问函数的变量，而内部函数里的变量函数无法访问）来实现外部函数通过闭包获取函数内部变量的一个过程，同时也不需要暴露内部的具体情况。而利用GC特性，我们通过闭包可以保存一些需要长时间保持的数据。</p>
-<h2 id="setTimeout"><a href="#setTimeout" class="headerlink" title="setTimeout"></a>setTimeout</h2><p>可能有人会说，切,setTimeout有啥可说啊~~~不好意思，可能本人见识短浅，setTimeout这里还是有几点可以说到说到。</p>
-<p>在讲setTimeout之前，先看个经典的例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(var i=0; i&lt;=5; i++)&#123;</span><br><span class="line">    setTimeout(function()&#123;</span><br><span class="line">        console.log(i);</span><br><span class="line">    &#125;, i*1000);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>大家应该都知道，由于js的运行机制setTimeout属于异步任务。setTimeout 会挂起微任务，由于var不存在块级作用域，所以最终的i都是同一个i，i === 5循环结束，i+1 === 6，然后打印。所以结果是6，6，6，6，6，6。<br>那么如何乖乖的让这个打印出0到5呢？目前我想到了三种情况：</p>
-<p>1) 闭包： 既然var没有块级作用域，那就用闭包模拟块级作用域。(实质是利用函数的局部作用域)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for(var i=0; i&lt;=5; i++)&#123;</span><br><span class="line">    (function(j)&#123;</span><br><span class="line">        setTimeout(function()&#123;</span><br><span class="line">            console.log(j);</span><br><span class="line">        &#125;, i*1000);</span><br><span class="line">    &#125;)(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>2) let： let的块级作用域。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(let i=0; i&lt;=5; i++)&#123;</span><br><span class="line">    setTimeout(function()&#123;</span><br><span class="line">        console.log(i);</span><br><span class="line">    &#125;, i*1000);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>3)setTimeout传参：可能有些人知道，可能有的人并不知道。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(var i=0; i&lt;=5; i++)&#123;</span><br><span class="line">    setTimeout(function(j)&#123;</span><br><span class="line">        console.log(j);</span><br><span class="line">    &#125;, i*1000, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>其实setTimeout内部同样是用到了闭包传参给回调函数，所以，我们可以使用setTimeout传参实现这个。</p>
-<h2 id="引申一下："><a href="#引申一下：" class="headerlink" title="引申一下："></a>引申一下：</h2><p>setTimeout是不是只能传一个参数，NO、NO、NO，肯定不是，用脚想想都不可能（考虑到实用性，通用性），那么怎么传？不买关子了，看例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var i = 1;     </span><br><span class="line">setTimeout(function(j,k,l)&#123;</span><br><span class="line">       console.log(j,k,l);</span><br><span class="line">   &#125;, i*1000, i,2*i, 3*i);</span><br></pre></td></tr></table></figure></p>
-<p>打印结果：<br><img src="https://user-gold-cdn.xitu.io/2019/5/11/16aa27c9e4a47e63?w=456&amp;h=84&amp;f=png&amp;s=6603" alt><br>我们可以大胆的猜测，setTimeout从第三个参数开始，可以传多个参数给回调函数。</p>
-<p>不放心的话，可以去MDN里仔细的了解一下：<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/setTimeout" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/Window/setTimeout</a></p>
-<p>如果觉得这么一个的写传入的参数，或者是参数的个数不明确，该怎么传？此时es6里的扩展运算符…可以排上用途了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var i = 1;     </span><br><span class="line">setTimeout(function(...args)&#123;</span><br><span class="line">       console.log(args[0],args[1], args[2]);</span><br><span class="line">   &#125;, i*1000, ...[i, 2*i, 3*i]);</span><br></pre></td></tr></table></figure></p>
-<p>以上便是关于闭包与setTimeout的一点点总结，欢迎大家积极支持不对和不完整的地方。（轻点喷，谢谢啦！）</p>
-<p>参考地址：<br> <a href="https://www.cnblogs.com/onepixel/p/5062456.html" target="_blank" rel="noopener">https://www.cnblogs.com/onepixel/p/5062456.html</a><br> <a href="https://segmentfault.com/a/1190000008681174" target="_blank" rel="noopener">https://segmentfault.com/a/1190000008681174</a> //闭包用途（重要）</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>众所周知，数据结构是计算机的基础，也是重中之中。计算机专业的童鞋们大学肯定都学过，然而大学教材基本上都是使用c语言或者c++来讲解数据结构，对于我们前端的童鞋们来说，并没那么容易理解，加之大学期间阅历有限，很多同学也没意识到数据结构的重要性，学的<br>也是一知半解。为了方便前端同学理解，大家共同学习的目的，接下来我将使用javascript实现代码，出一个数据结构的专题。我也是边总结边学习，有不当之处，还望大家指出，（轻点喷，(๑❛ᴗ❛๑) 手动狗头）<br><a id="more"></a></p>
+<h2 id="栈的特性"><a href="#栈的特性" class="headerlink" title="栈的特性"></a>栈的特性</h2><p>“栈(Stack)是一种线性存储结构，它具有如下特点：栈中的数据元素遵守”后进先出”(First In Last Out)的原则，简称FILO结构。限定只能在栈顶进行插入和删除操作。”<br>如图：<br><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200312151637.png" alt></p>
+<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><p>通过使用javascript提供的数组实现栈先进后出的特性，同时实现栈的大小，是否为空，添加、删除等基本功能，即可。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">var Stack = function()&#123;</span><br><span class="line">    /** 保存数据 */</span><br><span class="line">    var array = [];</span><br><span class="line"></span><br><span class="line">    /** push 推入栈顶元素 */</span><br><span class="line">    this.push = function(element)&#123;</span><br><span class="line">        array.push(element);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /** pop 推出栈顶元素 */</span><br><span class="line">    this.pop = function()&#123;</span><br><span class="line">        // 删除数组最后一个元素，即栈顶元素，同时返回出栈的元素</span><br><span class="line">        return array.pop();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /** size 栈的大小 */</span><br><span class="line">    this.size = function()&#123;</span><br><span class="line">        return array.length;</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">    /** peek 查看栈顶元素 */</span><br><span class="line">    this.peek = function()&#123;</span><br><span class="line">        return array[array.length-1];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /** clear 清空元素 */</span><br><span class="line">    this.clear = function()&#123;</span><br><span class="line">        array = [];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /** isEmpty 栈是否为空 */</span><br><span class="line">    this.isEmpty = function()&#123;</span><br><span class="line">        return array.length === 0;</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">    /** values 栈的数值 */</span><br><span class="line">    this.values = function()&#123;</span><br><span class="line">        return array;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上便是栈的实现，把握栈先进后出的特性是关键，如果同学对于javascript数组自带的api不够了解，请先自行了解下具体的方法。</p>
 
       
     </div>
@@ -429,9 +408,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/面试/" rel="tag"><i class="fa fa-tag"></i> 面试</a>
+            <a href="/tags/数据结构/" rel="tag"><i class="fa fa-tag"></i> 数据结构</a>
           
-            <a href="/tags/js/" rel="tag"><i class="fa fa-tag"></i> js</a>
+            <a href="/tags/栈/" rel="tag"><i class="fa fa-tag"></i> 栈</a>
           
         </div>
       
@@ -444,8 +423,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/06/原型链、继承/" rel="next" title="原型链、继承">
-                <i class="fa fa-chevron-left"></i> 原型链、继承
+              <a href="/2019/05/18/http-https-协议/" rel="next" title="http/https 协议">
+                <i class="fa fa-chevron-left"></i> http/https 协议
               </a>
             
           </div>
@@ -453,10 +432,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/12/redux中间件执行原理？/" rel="prev" title="redux中间件执行原理？">
-                redux中间件执行原理？ <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -611,7 +586,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">1.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包的作用："><span class="nav-number">1.1.</span> <span class="nav-text">闭包的作用：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#setTimeout"><span class="nav-number">2.</span> <span class="nav-text">setTimeout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引申一下："><span class="nav-number">3.</span> <span class="nav-text">引申一下：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#栈的特性"><span class="nav-number">2.</span> <span class="nav-text">栈的特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现思路"><span class="nav-number">3.</span> <span class="nav-text">实现思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实现"><span class="nav-number">4.</span> <span class="nav-text">代码实现</span></a></li></ol></div>
             
 
           </div>
