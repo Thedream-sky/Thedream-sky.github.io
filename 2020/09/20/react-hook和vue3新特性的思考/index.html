@@ -6,69 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://Thedream-sky.github.io">
-  <title>前端知识梳理 | 寻梦人的个人博客</title>
+  <title>react-hook和vue3新特性的思考 | 寻梦人的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="css部分需要了解这些问题。">
-<meta name="keywords" content="js,面试">
+  <meta name="description" content="前言react 作为主流前端框架之一，在很多地方有着它过人之处，值得去研究和学习。正好前段时间在学习react-hook新出特性，谈谈自己的一些思考，在此做个笔记。">
+<meta name="keywords" content="react,js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端知识梳理">
-<meta property="og:url" content="http://Thedream-sky.github.io/2020/04/20/前端知识梳理/index.html">
+<meta property="og:title" content="react-hook和vue3新特性的思考">
+<meta property="og:url" content="http://Thedream-sky.github.io/2020/09/20/react-hook和vue3新特性的思考/index.html">
 <meta property="og:site_name" content="寻梦人的个人博客">
-<meta property="og:description" content="css部分需要了解这些问题。">
+<meta property="og:description" content="前言react 作为主流前端框架之一，在很多地方有着它过人之处，值得去研究和学习。正好前段时间在学习react-hook新出特性，谈谈自己的一些思考，在此做个笔记。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200525115822.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200525115021.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200525123716.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200525124429.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200525124530.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200527132623.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200527132812.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200527134438.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200527134543.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200527180459.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200527182509.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528121746.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528121937.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528123628.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528123757.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528123821.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528124130.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528125552.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528125630.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528125829.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528130631.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528131803.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528153502.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528155608.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528160823.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528161400.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528161743.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200529130658.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200529130937.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200529132005.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200529142816.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200529142923.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200529142953.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200529143032.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200529143049.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200529175113.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200531152629.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200531152827.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200531152911.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200531153040.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200531153147.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200531153224.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200531153256.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200531154038.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200531154225.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200601121046.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200601141603.png">
-<meta property="og:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200601162353.png">
-<meta property="og:updated_time" content="2020-06-04T05:23:14.368Z">
+<meta property="og:updated_time" content="2020-10-08T08:46:39.026Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端知识梳理">
-<meta name="twitter:description" content="css部分需要了解这些问题。">
-<meta name="twitter:image" content="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200525115822.png">
+<meta name="twitter:title" content="react-hook和vue3新特性的思考">
+<meta name="twitter:description" content="前言react 作为主流前端框架之一，在很多地方有着它过人之处，值得去研究和学习。正好前段时间在学习react-hook新出特性，谈谈自己的一些思考，在此做个笔记。">
   
     <link rel="alternative" href="/atom.xml" title="寻梦人的个人博客" type="application/atom+xml">
   
@@ -204,315 +155,90 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-前端知识梳理" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-react-hook和vue3新特性的思考" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      前端知识梳理
+      react-hook和vue3新特性的思考
     </h1>
   
 
         
-        <a href="/2020/04/20/前端知识梳理/" class="archive-article-date">
-  	<time datetime="2020-04-20T07:28:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-20</time>
+        <a href="/2020/09/20/react-hook和vue3新特性的思考/" class="archive-article-date">
+  	<time datetime="2020-09-20T15:07:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="css部分"><a href="#css部分" class="headerlink" title="css部分"></a>css部分</h2><p>需要了解这些问题。<br><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200525115822.png" alt><br><a id="more"></a></p>
-<h3 id="css盒模型"><a href="#css盒模型" class="headerlink" title="css盒模型"></a>css盒模型</h3><p>分为标准盒模型和IE模型，盒模型由margin、border、padding、content四个部分组成。<br><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200525115021.png" alt></p>
-<h3 id="css盒模型的区别"><a href="#css盒模型的区别" class="headerlink" title="css盒模型的区别"></a>css盒模型的区别</h3><p>标准盒模型的长宽以content为主，IE盒模型的长宽是包括border、padding、content这三个部分。</p>
-<h3 id="css如何设置盒模型的类别"><a href="#css如何设置盒模型的类别" class="headerlink" title="css如何设置盒模型的类别"></a>css如何设置盒模型的类别</h3><p>box-sizing: content-box(标准模型)<br>box-sizing: border-box(IE模型)</p>
-<h3 id="js如何获取盒模型对应的长宽"><a href="#js如何获取盒模型对应的长宽" class="headerlink" title="js如何获取盒模型对应的长宽"></a>js如何获取盒模型对应的长宽</h3><ol>
-<li>dom.style.width/height : 只能取出内联样式的宽和高 eg: <div id="aa" style="width: 200px"></div></li>
-<li>dom.currentStyle.width/height 获取即时计算的样式，但是只有 IE 支持，要想支持其他浏览器，可以通过下面的方式</li>
-<li>window.getComputedStyle(dom).width/heigt 兼容性更好。</li>
-<li>dom.getBoundingClientRect().width/height: 这个较少用，主要是要来计算在页面中的绝对位置。<h3 id="边距重叠"><a href="#边距重叠" class="headerlink" title="边距重叠"></a>边距重叠</h3>什么是边距重叠呢?</li>
-</ol>
-<p>边界重叠是指两个或多个盒子(可能相邻也可能嵌套)的相邻边界(其间没有任何非空内容、补白、边框)重合在一起而形成一个单一边界。</p>
-<ol>
-<li>父子重叠的边距重叠问题<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">  .parent &#123;</span><br><span class="line">    background: #e7a1c5;</span><br><span class="line">  &#125;</span><br><span class="line">  .parent .child &#123;</span><br><span class="line">    background: #c8cdf5;</span><br><span class="line">    height: 100px;</span><br><span class="line">    margin-top: 10px;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;section class=&quot;parent&quot;&gt;</span><br><span class="line">  &lt;article class=&quot;child&quot;&gt;&lt;/article&gt;</span><br><span class="line">&lt;/section&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200525123716.png" alt><br>在这里父元素的高度不是 110px，而是 100px，在这里发生了高度坍塌。<br>原因是如果块元素的 margin-top 与它的第一个子元素的 margin-top 之间没有 border、padding、inline content、 clearance 来分隔，或者块元素的 margin-bottom 与它的最后一个子元素的 margin-bottom 之间没有 border、padding、inline content、height、min-height、 max-height 分隔，那么外边距会塌陷。子元素多余的外边距会被父元素的外边距截断。</p>
-<ol start="2">
-<li>兄弟元素的边界重叠<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">  #margin &#123;</span><br><span class="line">    background: #e7a1c5;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    width: 300px;</span><br><span class="line">  &#125;</span><br><span class="line">  #margin &gt; p &#123;</span><br><span class="line">    background: #c8cdf5;</span><br><span class="line">    margin: 20px auto 30px;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;section id=&quot;margin&quot;&gt;</span><br><span class="line">  &lt;p&gt;1&lt;/p&gt;</span><br><span class="line">  &lt;p&gt;2&lt;/p&gt;</span><br><span class="line">  &lt;p&gt;3&lt;/p&gt;</span><br><span class="line">&lt;/section&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200525124429.png" alt><br>可以看到 1 和 2,2 和 3 之间的间距不是 50px，发生了边距重叠是取了它们之间的最大值 30px。</p>
-<ol start="3">
-<li>空元素的边界重叠<br>假设有一个空元素，它有外边距，但是没有边框或填充。在这种情况下，上外边距与下外边距就碰到了一起，它们会发生合并：<br><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200525124530.png" alt></li>
-</ol>
-<h3 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h3><p>解决上述问题的其中一个办法就是创建 BFC。BFC 的全称为 Block Formatting Context，即块级格式化上下文。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>react 作为主流前端框架之一，在很多地方有着它过人之处，值得去研究和学习。正好前段时间在学习react-hook新出特性，谈谈自己的一些思考，在此做个笔记。<br><a id="more"></a></p>
+<h2 id="react-hook是什么"><a href="#react-hook是什么" class="headerlink" title="react-hook是什么"></a>react-hook是什么</h2><p>引用官网的一句话：’它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。’什么意思呢？即是使用react推崇的函数组件编程思想同时还能使用拥有自己的state状态，感觉是函数组件的升级版。</p>
+<h2 id="react-hook几个核心的api"><a href="#react-hook几个核心的api" class="headerlink" title="react-hook几个核心的api"></a>react-hook几个核心的api</h2><p>参考官网： <a href="https://react.docschina.org/docs/hooks-reference.html" target="_blank" rel="noopener">https://react.docschina.org/docs/hooks-reference.html</a></p>
+<h3 id="useState"><a href="#useState" class="headerlink" title="useState"></a>useState</h3><p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; useState &#125; from &apos;react&apos;;</span><br><span class="line"></span><br><span class="line">function Example() &#123;</span><br><span class="line">  // 声明一个叫 &quot;count&quot; 的 state 变量</span><br><span class="line">  const [count, setCount] = useState(0);</span><br><span class="line"></span><br><span class="line">  return (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;p&gt;You clicked &#123;count&#125; times&lt;/p&gt;</span><br><span class="line">      &lt;button onClick=&#123;() =&gt; setCount(count + 1)&#125;&gt;</span><br><span class="line">        Click me</span><br><span class="line">      &lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>使得函数组件拥有自己的state。</p>
+<h3 id="useEffect"><a href="#useEffect" class="headerlink" title="useEffect"></a>useEffect</h3><p>在实际开发中除了操作state，不可避免的需要一些副操作，例如网络请求、io操作等等。例如下面统计上线人数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; useState, useEffect &#125; from &apos;react&apos;;</span><br><span class="line"></span><br><span class="line">function Example() &#123;</span><br><span class="line">  const [count, setCount] = useState(0);</span><br><span class="line"></span><br><span class="line">  // Similar to componentDidMount and componentDidUpdate:</span><br><span class="line">  useEffect(() =&gt; &#123;</span><br><span class="line">    // Update the document title using the browser API</span><br><span class="line">    fetch(&apos;&apos;, params).then((res)=&gt;&#123;</span><br><span class="line">      setCount(()=&gt; count++)  </span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  return (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;p&gt;当前人数 &#123;count&#125; &lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="useContext"><a href="#useContext" class="headerlink" title="useContext"></a>useContext</h3><p>context的钩子，用于组件之间共享数据。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">const themes = &#123;</span><br><span class="line">  light: &#123;</span><br><span class="line">    foreground: &quot;#000000&quot;,</span><br><span class="line">    background: &quot;#eeeeee&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  dark: &#123;</span><br><span class="line">    foreground: &quot;#ffffff&quot;,</span><br><span class="line">    background: &quot;#222222&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const ThemeContext = React.createContext(themes.light);</span><br><span class="line"></span><br><span class="line">function App() &#123;</span><br><span class="line">  return (</span><br><span class="line">    &lt;ThemeContext.Provider value=&#123;themes.dark&#125;&gt;</span><br><span class="line">      &lt;Toolbar /&gt;</span><br><span class="line">    &lt;/ThemeContext.Provider&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Toolbar(props) &#123;</span><br><span class="line">  return (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;ThemedButton /&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function ThemedButton() &#123;</span><br><span class="line">  const theme = useContext(ThemeContext);</span><br><span class="line">  return (</span><br><span class="line">    &lt;button style=&#123;&#123; background: theme.background, color: theme.foreground &#125;&#125;&gt;</span><br><span class="line">      I am styled by theme context!</span><br><span class="line">    &lt;/button&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="useReducer"><a href="#useReducer" class="headerlink" title="useReducer"></a>useReducer</h3><p>useState的增强版，可以使用于一些特殊的情况。（和redux里的reduce有些类似）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">const initialState = &#123;count: 0&#125;;</span><br><span class="line"></span><br><span class="line">function reducer(state, action) &#123;</span><br><span class="line">  switch (action.type) &#123;</span><br><span class="line">    case &apos;increment&apos;:</span><br><span class="line">      return &#123;count: state.count + 1&#125;;</span><br><span class="line">    case &apos;decrement&apos;:</span><br><span class="line">      return &#123;count: state.count - 1&#125;;</span><br><span class="line">    default:</span><br><span class="line">      throw new Error();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Counter() &#123;</span><br><span class="line">  const [state, dispatch] = useReducer(reducer, initialState);</span><br><span class="line">  return (</span><br><span class="line">    &lt;&gt;</span><br><span class="line">      Count: &#123;state.count&#125;</span><br><span class="line">      &lt;button onClick=&#123;() =&gt; dispatch(&#123;type: &apos;decrement&apos;&#125;)&#125;&gt;-&lt;/button&gt;</span><br><span class="line">      &lt;button onClick=&#123;() =&gt; dispatch(&#123;type: &apos;increment&apos;&#125;)&#125;&gt;+&lt;/button&gt;</span><br><span class="line">    &lt;/&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="useMemo"><a href="#useMemo" class="headerlink" title="useMemo"></a>useMemo</h3><p>memo的钩子函数，用于判断传入state的依赖是否发生变化，在渲染阶段作出改变,例如。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; memo, useState, useMemo &#125; from &quot;react&quot;;</span><br><span class="line">function App() &#123;</span><br><span class="line">    const [value, setValue] = useState(0);</span><br><span class="line">    const increase = useMemo(() =&gt; &#123;</span><br><span class="line">        if(value &gt; 2) return value + 1;</span><br><span class="line">    &#125;, [value]);</span><br><span class="line">    return (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;button</span><br><span class="line">                type=&quot;button&quot;</span><br><span class="line">                onClick=&#123;() =&gt; &#123;</span><br><span class="line">                    setValue(value + 1);</span><br><span class="line">                &#125;&#125;</span><br><span class="line">            &gt;</span><br><span class="line">                value:&#123;value&#125;,increase:&#123;increase || 0&#125;</span><br><span class="line">            &lt;/button&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="useRef"><a href="#useRef" class="headerlink" title="useRef"></a>useRef</h3><p>ref 的钩子函数,拿到元素本身的ref。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function TextInputWithFocusButton() &#123;</span><br><span class="line">  const inputEl = useRef(null);</span><br><span class="line">  const onButtonClick = () =&gt; &#123;</span><br><span class="line">    // `current` 指向已挂载到 DOM 上的文本输入元素</span><br><span class="line">    inputEl.current.focus();</span><br><span class="line">  &#125;;</span><br><span class="line">  return (</span><br><span class="line">    &lt;&gt;</span><br><span class="line">      &lt;input ref=&#123;inputEl&#125; type=&quot;text&quot; /&gt;</span><br><span class="line">      &lt;button onClick=&#123;onButtonClick&#125;&gt;Focus the input&lt;/button&gt;</span><br><span class="line">    &lt;/&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="为什么需要react-hook"><a href="#为什么需要react-hook" class="headerlink" title="为什么需要react-hook"></a>为什么需要react-hook</h2><p>在谈论这个问题的时候，我们应该去思考原有的react有什么缺陷或者不足的地方，下面是我在学习过程发现的一些问题。</p>
+<h3 id="react组件过于臃肿，实现不方便。"><a href="#react组件过于臃肿，实现不方便。" class="headerlink" title="react组件过于臃肿，实现不方便。"></a>react组件过于臃肿，实现不方便。</h3><p>看个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Component &#125; from &quot;react&quot;;</span><br><span class="line"></span><br><span class="line">export default class Button extends Component &#123;</span><br><span class="line">  constructor() &#123;</span><br><span class="line">    super();</span><br><span class="line">    this.state = &#123; buttonText: &quot;Click me, please&quot; &#125;;</span><br><span class="line">    this.handleClick = this.handleClick.bind(this);</span><br><span class="line">  &#125;</span><br><span class="line">  handleClick() &#123;</span><br><span class="line">    this.setState(() =&gt; &#123;</span><br><span class="line">      return &#123; buttonText: &quot;Thanks, been clicked!&quot; &#125;;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    const &#123; buttonText &#125; = this.state;</span><br><span class="line">    return &lt;button onClick=&#123;this.handleClick&#125;&gt;&#123;buttonText&#125;&lt;/button&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在上个例子中，为了改变一个按钮状态，需要这么多过程来配合它，是不是显得有些笨重。如果还涉及到一些生命周期的问题，问题是不是就变得复杂了。<br>下面是Hook的实现方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; useState &#125; from &apos;react&apos;;</span><br><span class="line"></span><br><span class="line">function Button() &#123;</span><br><span class="line">  // 声明一个叫 &quot;count&quot; 的 state 变量</span><br><span class="line">  const [buttonText, setButtonText] = useState(&quot;Click me, please&quot;);</span><br><span class="line">  return (&lt;button onClick=&#123;()=&gt;&#123;setButtonText(&apos;Thanks, been clicked!&apos;)&#125;&#125;&gt;&#123;buttonText&#125;&lt;/button&gt;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>react-hook是函数式编程，你不需要定义constructor，render，定义class，只需要关注需要改变的内部状态即可，这样不是清爽多了！</p>
+<h3 id="状态微粒化"><a href="#状态微粒化" class="headerlink" title="状态微粒化"></a>状态微粒化</h3><p>有过react的实际开发经历的都会知道，当一个页面的内容很复杂的时候，大家基本上会第一时间想到函数组件来拆分页面，实现组件化。组件不要变成复杂的容器，最好只是数据流的管道。组件的最佳写法应该是函数，而不是类。这么看普通的函数组件就能满足需求了，然而，事实并非如此。我们不可避免的需要在使用过程中使用一些状态，这个时候还得依赖class组件的state。这个时候使用react-hook就恰到好处，无需依赖其他state，自己管理自身的state即可。<br>上面那个class组件可以改装成这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Component, useState &#125; from &quot;react&quot;;</span><br><span class="line"></span><br><span class="line">function Button() &#123;</span><br><span class="line">  // 声明一个叫 &quot;count&quot; 的 state 变量</span><br><span class="line">  const [buttonText, setButtonText] = useState(&quot;Click me, please&quot;);</span><br><span class="line">  return (&lt;button onClick=&#123;()=&gt;&#123;setButtonText(&apos;Thanks, been clicked!&apos;)&#125;&#125;&gt;&#123;buttonText&#125;&lt;/button&gt;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default class Button extends Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">   return &lt;Button /&gt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>试想页面存在多个这样的不同的组件的时候，使用state那种让人头大方式就不复存在了，也能更好地关注业务的实现，在后期维护上也很方便。</p>
+<h3 id="逻辑复用"><a href="#逻辑复用" class="headerlink" title="逻辑复用"></a>逻辑复用</h3><p>参考之前写的文章：（<a href="http://xunmengren.work/2020/06/03/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86-%E8%BF%9B%E9%98%B6" target="_blank" rel="noopener">React Hook 小小窥视</a>） </p>
+<p>总体来说，react对于逻辑复用这块，也就两种方式，第一种是使用插槽这种方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">var LogMixin = &#123;</span><br><span class="line">  log: function() &#123;</span><br><span class="line">    console.log(&apos;log&apos;);</span><br><span class="line">  &#125;,</span><br><span class="line">  componentDidMount: function() &#123;</span><br><span class="line">    console.log(&apos;in&apos;);</span><br><span class="line">  &#125;,</span><br><span class="line">  componentWillUnmount: function() &#123;</span><br><span class="line">    console.log(&apos;out&apos;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var User = React.createClass(&#123;</span><br><span class="line">  mixins: [LogMixin],</span><br><span class="line">  render: function() &#123;</span><br><span class="line">    return (&lt;div&gt;...&lt;/div&gt;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">var Goods = React.createClass(&#123;</span><br><span class="line">  mixins: [LogMixin],</span><br><span class="line">  render: function() &#123;</span><br><span class="line">    return (&lt;div&gt;...&lt;/div&gt;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>这种方式在react中已经被弃用了。</p>
+<p>第二种也就是常见的高阶组件这种方式了，具体如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">/** 属性代理 */</span><br><span class="line">function proxyHOC(WrappedComponent) &#123;</span><br><span class="line">  // props的一些劫持操作</span><br><span class="line">  ...  </span><br><span class="line">  return class extends Component &#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">      return &lt;WrappedComponent &#123;...this.props&#125; /&gt;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">/** 反向继承(侵入性比较强，不推荐) */</span><br><span class="line">function inheritHOC(WrappedComponent) &#123;</span><br><span class="line">  return class extends WrappedComponent &#123;</span><br><span class="line">    // 操作一些生命周期</span><br><span class="line">    ...  </span><br><span class="line">    render() &#123;</span><br><span class="line">      return super.render();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>所谓高阶组件也就是利用函数劫持传入的props进行一些操作，并将这些新特性传递给传入组件返回新组件的一种方式，看起来是挺优雅的，不会改变转入组件的原有特性，然而也有不尽之处。</p>
 <ul>
-<li>处于同一个 BFC 中的元素相互影响，可能会发生 margin collapse；</li>
-<li>BFC 在页面上是一个独立的容器，容器里面的子元素不会影响到外面的元素，反之亦然；</li>
-<li>计算 BFC 的高度时，考虑 BFC 所包含的所有元素，包括浮动元素也参与计算；</li>
-<li>浮动盒的区域不会叠加到 BFC 上；</li>
+<li>如果大量使用HOC，将会产生非常多的嵌套，在代码理解和使用这块会比较困难，会使得调试变得非常困难，同时不利于后期的维护。</li>
+<li>props 在各个高阶组件没有一些约定的命名规范的时候，会造成不同高阶组件相同属性重名，造成props覆盖，这是不愿意看到的。</li>
+<li>props的来源难以追踪，当多重hoc嵌套时，是没法在最终的组件里区分这些props的来源的，一旦props出现问题，也不能立即定位到具体的高级组件。</li>
 </ul>
-<h3 id="创建BFC"><a href="#创建BFC" class="headerlink" title="创建BFC"></a>创建BFC</h3><ul>
-<li>根元素或包含根元素的元素</li>
-<li>浮动元素（元素的 float 不是 none）</li>
-<li>绝对定位元素（元素的 position 为 absolute 或 fixed）</li>
-<li>行内块元素（元素的 display 为 inline-block）</li>
-<li>表格单元格（元素的 display为 table-cell，HTML表格单元格默认为该值）</li>
-<li>表格标题（元素的 display 为 table-caption，HTML表格标题默认为该值）</li>
-<li>匿名表格单元格元素（元素的 display为 table、<code>table-row、 table-row-group、</code>table-header-group、<code></code>table-footer-group（分别是HTML table、row、tbody、thead、tfoot的默认属性）或 inline-table）</li>
-<li>overflow 值不为 visible 的块元素</li>
-<li>display 值为 <a href="https://drafts.csswg.org/css-display/#valdef-display-flow-root" target="_blank" rel="noopener">flow-root</a> 的元素</li>
-<li>contain 值为 layout、content或 strict 的元素</li>
-<li>弹性元素（display为 flex 或 inline-flex元素的直接子元素）</li>
-<li>网格元素（display为 grid 或 inline-grid 元素的直接子元素）</li>
-<li>多列容器（元素的 column-count 或 column-width 不为 auto，包括 <code></code>column-count 为 1）</li>
-<li>column-span 为 all 的元素始终会创建一个新的BFC，即使该元素没有包裹在一个多列容器中（标准变更，Chrome bug）。</li>
-</ul>
-<h3 id="BFC的使用场景"><a href="#BFC的使用场景" class="headerlink" title="BFC的使用场景"></a>BFC的使用场景</h3><ol>
-<li>不和浮动元素重叠</li>
-<li>清除元素内部的浮动</li>
-<li>防止垂直margin重叠<br>参考地址： <a href="https://juejin.im/post/5a4dbe026fb9a0452207ebe6#heading-8" target="_blank" rel="noopener">https://juejin.im/post/5a4dbe026fb9a0452207ebe6#heading-8</a></li>
-</ol>
-<h2 id="dom部分"><a href="#dom部分" class="headerlink" title="dom部分"></a>dom部分</h2><p><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200527132623.png" alt></p>
-<h3 id="dom-事件类别"><a href="#dom-事件类别" class="headerlink" title="dom 事件类别"></a>dom 事件类别</h3><p><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200527132812.png" alt><br>其中第三个参数是区分是否在捕获期间执行。ture的时候即在捕获期间执行，false则在冒泡阶段执行。</p>
-<ol>
-<li>DOM0 直接在元素节点上添加onClick类似的事件。</li>
-<li>DOM2 在节点上添加addEventListener监听事件。</li>
-<li>DOM3 在 DOM2 的基础上添加更多的监听事件，同时允许自定义事件。<br>参考: <a href="https://juejin.im/post/5c4bd01fe51d45522b4f6e4e" target="_blank" rel="noopener">https://juejin.im/post/5c4bd01fe51d45522b4f6e4e</a><h3 id="DOM事件流"><a href="#DOM事件流" class="headerlink" title="DOM事件流"></a>DOM事件流</h3><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200527134438.png" alt><br>分捕获和冒泡阶段。</li>
-<li>DOM捕获过程<br><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200527134543.png" alt></li>
-<li>DOM 的冒泡过程是反过来的。<h3 id="DOM自定义事件"><a href="#DOM自定义事件" class="headerlink" title="DOM自定义事件"></a>DOM自定义事件</h3></li>
-<li>使用Event构造函数创建：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var event = new Event(&apos;build&apos;);</span><br><span class="line"></span><br><span class="line">// Listen for the event.</span><br><span class="line">elem.addEventListener(&apos;build&apos;, function (e) &#123; ... &#125;, false);</span><br><span class="line"></span><br><span class="line">// Dispatch the event.</span><br><span class="line">elem.dispatchEvent(event);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>这里build是自创的事件名。dispatchEvent()用于触发事件。<br>绝大多数现代浏览器中都会支持这个构造函数（Internet Explorer 例外）。 要了解更为复杂的方法，可参考下面的 过时的方法  一节。</p>
-<ol start="2">
-<li>使用CustomEvent床架：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var event = new CustomEvent(&apos;build&apos;, &#123; </span><br><span class="line">  &apos;detail&apos;: elem.dataset.time，</span><br><span class="line">   bubbles: true,</span><br><span class="line">  &#125;);</span><br><span class="line">// Listen for the event.</span><br><span class="line">elem.addEventListener(&apos;build&apos;, function (e) &#123; </span><br><span class="line">  log(&apos;The time is: &apos; + e.detail);</span><br><span class="line">&#125;, false);</span><br><span class="line"></span><br><span class="line">// Dispatch the event.</span><br><span class="line">elem.dispatchEvent(event);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>这里在创建的时候设置了detail属性，在监听的事件那块可以拿到数据。注意只能使用detail属性来传递数据。bubbles来设置是否在冒泡阶段触发。</p>
-<ol start="3">
-<li>使用createEvent方法，比较老的方法。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 创建事件</span><br><span class="line">var event = document.createEvent(&apos;Event&apos;);</span><br><span class="line"></span><br><span class="line">// 定义事件名为&apos;build&apos;.</span><br><span class="line">event.initEvent(&apos;build&apos;, true, true);</span><br><span class="line"></span><br><span class="line">// 监听事件</span><br><span class="line">elem.addEventListener(&apos;build&apos;, function (e) &#123;</span><br><span class="line">  // e.target matches elem</span><br><span class="line">&#125;, false);</span><br><span class="line"></span><br><span class="line">// 触发对象可以是任何元素或其他事件目标</span><br><span class="line">elem.dispatchEvent(event);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="DOM常见事件。"><a href="#DOM常见事件。" class="headerlink" title="DOM常见事件。"></a>DOM常见事件。</h3><ol>
-<li><p>event.preventDefault：<br>Event 接口的 preventDefault()方法，告诉user agent：如果此事件没有被显式处理，它默认的动作也不应该照常执行。此事件还是继续传播，除非碰到事件侦听器调用stopPropagation() 或stopImmediatePropagation()，才停止传播。 大白话就是阻止事件的默认行为的发生（比如点击复选框默认勾选）,但是该事件还是会照常传播，捕获和冒泡会继续执行，除非使用stopPropagation() 或stopImmediatePropagation()阻止了传播。</p>
-</li>
-<li><p>event.stopPropagation：<br>阻止捕获和冒泡阶段中当前事件的进一步传播。至于是在阻止捕获还是阻止冒泡，和event定义的第三个参数有关系，默认为false,在冒泡阶段。</p>
-</li>
-<li><p>event.stopImmediatePropagation：<br>阻止事件冒泡并且阻止相同事件的其他侦听器被调用。</p>
-</li>
-</ol>
-<p>不同点 stopPropagation可以阻止事件冒泡，但不会影响改事件的其他监听方法执行，而stopImmediatePropagation不仅阻止事件冒泡，还会阻止该事件后面的相同类型事件监听方法执行</p>
-<ol start="4">
-<li><p>event.currentTarget<br>event.currentTarget 当事件遍历DOM时，标识事件的当前目标。它总是引用事件处理程序附加到的元素</p>
-</li>
-<li><p>event.target<br>Event.target 对触发事件的对象的引用(即它标识事件发生的元素)</p>
-</li>
-</ol>
-<p>target在事件流的目标阶段；currentTarget在事件流的捕获，目标及冒泡阶段。只有当事件流处在目标阶段的时候，两个的指向才是一样的，<br>而当处于捕获和冒泡阶段的时候，target指向被单击的对象而currentTarget指向当前事件活动的对象（一般为父级）。</p>
-<p>也就是说target指的是事件设定的控件本身，currentTarget指的是事件传播过程中的当前元素。</p>
-<h2 id="http部分"><a href="#http部分" class="headerlink" title="http部分"></a>http部分</h2><p><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200527180459.png" alt></p>
-<h3 id="http-主要特点"><a href="#http-主要特点" class="headerlink" title="http 主要特点"></a>http 主要特点</h3><p>特点： 简单快速、灵活、无状态、无连接</p>
-<p>简单快速： 所有资源都是通过统一资源符进行访问的，格式固定，比较简单。<br>灵活： http 头部会有数据类型的记录，通过http协议可以进行各种数据类型的传输。<br>无连接：每次连接完会断开。<br>无状态：客户端和服务器进行http请求，每次连接是没法区分和上一次连接是不是同一身份，应为http本身不保存状态。</p>
-<h3 id="http-报文的组成部分。"><a href="#http-报文的组成部分。" class="headerlink" title="http 报文的组成部分。"></a>http 报文的组成部分。</h3><p><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200527182509.png" alt><br>请求报文组成部分分以下四个部分</p>
-<ol>
-<li>请求行：请求行由请求方法、URL和HTTP协议版本3个字段组成，它们用空格分隔。</li>
-<li>请求头部：<br>请求头部由关键字/值对组成，每行一对，关键字和值用英文冒号“:”分隔。请求头部通知服务器有关于客户端请求的信息，</li>
-</ol>
-<p>通用首部(General Header)<br>请求首部(Request Header)<br>响应首部(Response Header)<br>实体首部(Entity Header Fields)</p>
-<ol start="3">
-<li>空行：最后一个请求头之后是一个空行，发送回车符和换行符，通知服务器以下不再有请求头。</li>
-<li>请求体：请求数据不在GET方法中使用，而是在POST方法中使用。POST方法适用于需要客户填写表单的场合。与请求数据相关的最常使用的请求头是Content-Type和Content-Length。</li>
-</ol>
-<p>响应报文组成部分：响应行、响应头、空行、响应体</p>
-<p>状态行 : HTTP-Version Status-Code Reason-Phrase CRLF</p>
-<p>HTTP-Version 服务器HTTP协议的版本<br>Status-Code 服务器发回的响应状态代码<br>Reason-Phrase 状态代码的文本描述</p>
-<h3 id="http-的方法"><a href="#http-的方法" class="headerlink" title="http 的方法"></a>http 的方法</h3><p><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528121746.png" alt></p>
-<h3 id="get-方法和-post-方法的区别"><a href="#get-方法和-post-方法的区别" class="headerlink" title="get 方法和 post 方法的区别"></a>get 方法和 post 方法的区别</h3><p><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528121937.png" alt></p>
-<h3 id="http-状态码"><a href="#http-状态码" class="headerlink" title="http 状态码"></a>http 状态码</h3><p>5大类型：<br><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528123628.png" alt></p>
-<p>具体状态码：<br><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528123757.png" alt><br><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528123821.png" alt></p>
-<h3 id="http-持久连接"><a href="#http-持久连接" class="headerlink" title="http 持久连接"></a>http 持久连接</h3><p><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528124130.png" alt><br>注意持久连接是从 http 1.1 版本才开始支持的.</p>
-<h3 id="http-管线化"><a href="#http-管线化" class="headerlink" title="http 管线化"></a>http 管线化</h3><p>在持久化的前提下，多个请求按正常情况应该如下：<br><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528125552.png" alt><br>很显然请求一次返回后再请求效率是很低的，为了提高效率，就得使用管线化了。如下图<br><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528125630.png" alt><br>管线化将多个请求一起打包过去，然后响应就一起打包回来</p>
-<p>管线化要点：<br><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528125829.png" alt></p>
-<h2 id="原型链类"><a href="#原型链类" class="headerlink" title="原型链类"></a>原型链类</h2><p>有以下几个问题<br><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528130631.png" alt></p>
-<h3 id="对象的创建方法有几种"><a href="#对象的创建方法有几种" class="headerlink" title="对象的创建方法有几种"></a>对象的创建方法有几种</h3><ol>
-<li><p>字面量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var o1 =&#123;name: &apos;01&apos;&#125;</span><br><span class="line">var o11 = new Object(&#123;name: &apos;o11&apos;&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>显式构造函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var M = function()&#123;</span><br><span class="line">  this.name = &apos;o2&apos;</span><br><span class="line">&#125;</span><br><span class="line">var o2 = new M();</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Object.create()方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var P = &#123;name: &apos;o3&apos;&#125;;</span><br><span class="line">var o3 = Object.create(P);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h3><p><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528131803.png" alt></p>
-<h3 id="instanceof原理"><a href="#instanceof原理" class="headerlink" title="instanceof原理"></a>instanceof原理</h3><p><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528153502.png" alt></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var M = &#123; name: &apos;03&apos; &#125;;</span><br><span class="line">o3 = new M();</span><br><span class="line">o3 instanceof M // true</span><br><span class="line">o3.__proto__ === M.prototype // true</span><br><span class="line">M.prototype.__proto__ == Object.prototype // true</span><br><span class="line">o3.__proto__.constructor == M // true</span><br></pre></td></tr></table></figure>
-<p>有没有发现如果一直依靠 instaceof 来判断原型，只要是原型链上有相同的类型，返回就是true，这样也就出现了一个问题，不准确。例如: o3 instanceof Object 为true,问题我们需要的的原型应该是M才对啊。如何准确判别呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">o3.__proto__.constructor == M // true</span><br></pre></td></tr></table></figure></p>
-<p>利用原型对象的构造函数来进行判断，更为准确。</p>
-<h3 id="new-运算符"><a href="#new-运算符" class="headerlink" title="new 运算符"></a>new 运算符</h3><p><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528155608.png" alt></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var new2 = function(func)&#123;</span><br><span class="line">  var o = Object.create(func.prototype)</span><br><span class="line">  var k = func.call(o)</span><br><span class="line">  // 构造函数返回是否是对象</span><br><span class="line">  if(typeof k = &apos;object&apos;)&#123;</span><br><span class="line">    return k;</span><br><span class="line">  &#125;else&#123;</span><br><span class="line">    return o</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Object-create-方法"><a href="#Object-create-方法" class="headerlink" title="Object.create()方法"></a>Object.create()方法</h3><p><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528160823.png" alt></p>
-<p>从这可以看出，Object.create()的创建过程是先创建一个空对象o,然后使用<strong>propo</strong>属性指向原型对象p，通过原型链拿到属性的，和字面量和构造函数生成的对象是不一样的。</p>
-<h3 id="对象与继承关系"><a href="#对象与继承关系" class="headerlink" title="对象与继承关系"></a>对象与继承关系</h3><p><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528161400.png" alt></p>
-<h4 id="类的声明"><a href="#类的声明" class="headerlink" title="类的声明"></a>类的声明</h4><p><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200528161743.png" alt><br>分两种： 构造函数的形式、es6 class类型</p>
-<h4 id="继承方式"><a href="#继承方式" class="headerlink" title="继承方式"></a>继承方式</h4><ol>
-<li>借助构造函数实现继承<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function Parent1()&#123;</span><br><span class="line">  this.name = &apos;parent1&apos;</span><br><span class="line">&#125;</span><br><span class="line">Parent1.prototype.say = function()&#123;&#125;</span><br><span class="line"></span><br><span class="line">function Child1()&#123;</span><br><span class="line">  Parent1.call(this)</span><br><span class="line">  this.type = &apos;child1&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">new Child1().say() // 报错，拿不到say属性</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>缺点： 这种方式只能部分继承，只能拿到父类构造函数里的成员变量、方法，不能拿到原型链的内容</p>
-<ol start="2">
-<li>借助原型链实现继承<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function Parent2()&#123;</span><br><span class="line">  this.name = &apos;parent2&apos;</span><br><span class="line">  this.play = [1, 2, 3]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Child2()&#123;</span><br><span class="line">  this.type = &apos;child2&apos;</span><br><span class="line">&#125;</span><br><span class="line">Child2.prototype = new Parent2(); // 访问父类的原型</span><br><span class="line"></span><br><span class="line">var s1 = new Child2();</span><br><span class="line">var s2 = new Child2();</span><br><span class="line">s1.play.push(4)</span><br><span class="line"></span><br><span class="line">console.log(s1.play, s2.play) //  [1, 2, 3, 4], [1, 2, 3, 4]</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>显而易见，原型链继承使用的是同一个原型对象，里面的属性是公用的，对象之间属性操作是会相互影响的。没有隔离开来。</p>
-<ol start="3">
-<li>组合方式继承<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function Parent3()&#123;</span><br><span class="line">  this.name = &apos;parent3&apos;</span><br><span class="line">  this.play = [1, 2, 3]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Child3()&#123;</span><br><span class="line">  Parent3.call(this)</span><br><span class="line">  this.type = &apos;child3&apos;</span><br><span class="line">&#125;</span><br><span class="line">Child3.prototype = new Parent3();</span><br><span class="line">var s3 = new Child3();</span><br><span class="line">var s4 = new Child3();</span><br><span class="line">s4.play.push(4)</span><br><span class="line"></span><br><span class="line">console.log(s3.play, s4.play) //  [1, 2, 3], [1, 2, 3, 4]</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>优点：此方法结合上述两种方法的优点，就可实现继承父类的所有属性，同时属性不相互影响。<br>缺点： 这种方式会调用两次Parent3构造函数。</p>
-<p>优化方案一：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function Parent4()&#123;</span><br><span class="line">  this.name = &apos;parent4&apos;</span><br><span class="line">  this.play = [1, 2, 3]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Child4()&#123;</span><br><span class="line">  Parent4.call(this)</span><br><span class="line">  this.type = &apos;child4&apos;</span><br><span class="line">&#125;</span><br><span class="line">Child4.prototype = Parent4.prototype;</span><br><span class="line">var s5 = new Child4();</span><br><span class="line">var s6 = new Child4();</span><br><span class="line">s6.play.push(4)</span><br><span class="line"></span><br><span class="line">console.log(s5.play, s6.play) //  [1, 2, 3], [1, 2, 3, 4]</span><br><span class="line">console.log(s5 instanceof Child4,  s5 instanceof Parent4) // true true</span><br><span class="line">console.log(s5.__proto__.constructor === Parent4)</span><br></pre></td></tr></table></figure></p>
-<p>优点：这个方案可以避免多次调用父类的构造函数<br>缺点：s5.<strong>proto</strong>.constructor === Parent4 ,显而易见没法区分子类与父类的构造函数。</p>
-<p>优化方案二：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function Parent5()&#123;</span><br><span class="line">  this.name = &apos;parent5&apos;</span><br><span class="line">  this.play = [1, 2, 3]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Child5()&#123;</span><br><span class="line">  Parent5.call(this)</span><br><span class="line">  this.type = &apos;child5&apos;</span><br><span class="line">&#125;</span><br><span class="line">Child5.prototype = Object.create(Parent5.prototype);</span><br><span class="line">Child5.prototype.constructor = Child5;</span><br><span class="line"></span><br><span class="line">var s5 = new Child5();</span><br><span class="line">var s6 = new Child5();</span><br><span class="line">s6.play.push(4)</span><br><span class="line"></span><br><span class="line">console.log(s5.play, s6.play) //  [1, 2, 3], [1, 2, 3, 4]</span><br></pre></td></tr></table></figure></p>
-<p>此方法同时既满足了实现原型链的继承，同时改变了子类构造函数的指向。<br>此时 s5.<strong>proto</strong>.constructor === Child5，也可以拿到父类的属性。</p>
-<p>小疑问： 为什么不在上面也修改constructor指向呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Child4.prototype = Parent4.prototype;</span><br><span class="line">Child4.prototype.constructor = Child4;</span><br></pre></td></tr></table></figure></p>
-<p>答：因为上面的对象是共用的同一个原型对象，会造成所有的子类相互影响，为了避免这种问题，只能各自生成新的对象，才能避免互不打扰，此时Object.create 方法最为合适。</p>
-<h2 id="通信类"><a href="#通信类" class="headerlink" title="通信类"></a>通信类</h2><p><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200529130658.png" alt></p>
-<h3 id="什么是同源策略及限制"><a href="#什么是同源策略及限制" class="headerlink" title="什么是同源策略及限制"></a>什么是同源策略及限制</h3><p><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200529130937.png" alt></p>
-<p>同源指的是： 同协议、同域名、同端口。</p>
-<h3 id="前后端通讯的方式"><a href="#前后端通讯的方式" class="headerlink" title="前后端通讯的方式"></a>前后端通讯的方式</h3><ul>
-<li>Ajax</li>
-<li>WebSocket</li>
-<li>CORS</li>
-</ul>
-<h3 id="如何创建Ajax"><a href="#如何创建Ajax" class="headerlink" title="如何创建Ajax"></a>如何创建Ajax</h3><p><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200529132005.png" alt><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">function ajax(url, success, fail)&#123;</span><br><span class="line">    // 1. 创建连接</span><br><span class="line">    var xhr = null;</span><br><span class="line">    xhr = XMLHttpRequest? new XMLHttpRequest(): new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);</span><br><span class="line">    // 2. 连接服务器</span><br><span class="line">    if(请求方式为 &apos;get&apos;)&#123;</span><br><span class="line">        url = url+&apos;?&apos;+拼接参数</span><br><span class="line">       xhr.open(&apos;get&apos;, url, true)</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">       xhr.open(&apos;post&apos;, url, true);</span><br><span class="line">       xhr.setRequestHeader(&apos;Content-type&apos;, &apos;application/x-www-form-urlencoded&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">    // 3. 发送请求</span><br><span class="line">    if(请求方式为 &apos;get&apos;)&#123;</span><br><span class="line">      xhr.send();</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">      xhr.send(data);</span><br><span class="line">    &#125;</span><br><span class="line">    // 4. 接受请求</span><br><span class="line">    xhr.onreadystatechange = function()&#123;</span><br><span class="line">        if(xhr.readyState == 4)&#123;</span><br><span class="line">            if(xhr.status == 200)&#123;</span><br><span class="line">                success(xhr.responseText);</span><br><span class="line">            &#125; else &#123; // fail</span><br><span class="line">                fail &amp;&amp; fail(xhr.status);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 这里也可以处理数据，这是加载完时的回调函数</span><br><span class="line">    xmlhttp.onload = function () &#123;</span><br><span class="line">      // 处理取回的数据(在 xmlhttp.response 中找到)</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="ajax的五种状态（readyState-）"><a href="#ajax的五种状态（readyState-）" class="headerlink" title="ajax的五种状态（readyState ）"></a>ajax的五种状态（readyState ）</h4><p>　　0 － （未初始化）还没有调用send()方法<br>　　1 － （载入）已调用send()方法，正在发送请求<br>　　2 － （载入完成）send()方法执行完成，已经接收到全部响应内容<br>　　3 － （交互）正在解析响应内容<br>　　4 － （完成）响应内容解析完成，可以在客户端调用了</p>
-<h3 id="跨域通讯的几种方式"><a href="#跨域通讯的几种方式" class="headerlink" title="跨域通讯的几种方式"></a>跨域通讯的几种方式</h3><ul>
-<li>JSONP<br><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200529142816.png" alt></li>
-<li>Hash方式（iframe的方式，监听hash变化）<br><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200529142923.png" alt></li>
-<li>postMessage方式<br><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200529142953.png" alt></li>
-<li>webSocket方式<br><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200529143032.png" alt></li>
-<li>CROS方式(配置自行查找)<br><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200529143049.png" alt></li>
-</ul>
-<h2 id="安全类"><a href="#安全类" class="headerlink" title="安全类"></a>安全类</h2><h3 id="CSRF"><a href="#CSRF" class="headerlink" title="CSRF"></a>CSRF</h3><h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><p>CSRF ， 通常称为跨站请求伪造，英文名Cross-site request forgery 缩写CSRF</p>
-<h4 id="攻击原理"><a href="#攻击原理" class="headerlink" title="攻击原理"></a>攻击原理</h4><p><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200529175113.png" alt><br>利用钓鱼网站，调用的接口却是目标页面的接口，一旦请求成功成功，就会记录网站下发的cookie,然后假冒用户身份进行非法操作。</p>
-<h4 id="CSRF防御措施"><a href="#CSRF防御措施" class="headerlink" title="CSRF防御措施"></a>CSRF防御措施</h4><ul>
-<li>Referer 验证<br>大家都知道 HTTP 头中有一个 Referer 字段，这个字段用以标明请求来源于哪个地址。通过在网站中校验请求的该字段，我们能知道请求是否是从本站发出的。我们可以拒绝一切非本站发出的请求，这样避免了 CSRF 的跨站特性。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const &#123; parse &#125; = require(&apos;url&apos;);</span><br><span class="line">module.exports = class extends think.Logic &#123;</span><br><span class="line">  indexAction() &#123;</span><br><span class="line">    const referrer = this.ctx.referrer();</span><br><span class="line">    const &#123;host: referrerHost&#125; = parse(referrer);</span><br><span class="line">    if(referrerHost !== &apos;xxx&apos;) &#123;</span><br><span class="line">        return this.fail(&apos;REFERRER_ERROR&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这种方式利用了客户端无法构造 Referrer 的特性，虽然简单，不过当网站域名有多个，或者经常变换域名的时候会变得非常的麻烦，同时也具有一定的局限性。</p>
+<p>这个时候Hook得出现就能解决这些问题。<br>Hook说白了也就是一个函数，我们可以写一些公用逻辑，例如写一个登录逻辑。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; useState, useEffect &#125; from &apos;react&apos;;</span><br><span class="line"></span><br><span class="line">function()&#123;</span><br><span class="line">    const [logined, setLogined] = useState(false);</span><br><span class="line">    useEffect(()=&gt;&#123;</span><br><span class="line">       fetch(&apos;login&apos;, params).then(res=&gt;&#123;</span><br><span class="line">           setLogined(res.logined)</span><br><span class="line">       &#125;) </span><br><span class="line">    &#125;)</span><br><span class="line">    retuen &#123; logined, &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后在引入到不同组件中，登录逻辑被复用了，业务逻辑和ui逻辑也可以被分开。</p>
 <ul>
-<li>token验证<br>由于 CSRF 是利用了浏览器自动传递 cookie 的特性，另外一个防御思路就是校验信息不通过 cookie 传递，在其他参数中增加随机加密串进行校验。</li>
+<li>Hook 的方式与Minin 方式其实很像，但是Mixin引入的逻辑和状态是可以相互覆盖的，而Hook重命名的特性使得各个Hook互不影响。</li>
+<li>大量使用HOC的情况下让我们的代码变得嵌套层级非常深，使用Hook，我们可以实现扁平式的状态逻辑复用，而避免了大量的组件嵌套，便于管理。</li>
+<li>hook组件基本上告别了this各种昏头转向的指向问题，使得开发过程也清晰简单很多。</li>
 </ul>
-<ol>
-<li><p>随机字符串：为每一个提交增加一个随机串参数，该参数服务端通过页面下发，每次请求的时候补充到提交参数中，服务端通过校验该参数是否一致来判断是否是用户请求。由于 CSRF 攻击中攻击者是无从事先得知该随机字符串的值，所以服务端就可以通过校验该值拒绝可以请求。</p>
+<p>说到这不得不提一个之前看到的一篇文章，讲的是<a href="https://juejin.im/post/6844904100128112648" target="_blank" rel="noopener">业务逻辑与ui逻辑分离的问题</a></p>
+<p>其实这块也可以使用react-hook来进行一个业务逻辑和ui逻辑的分离。</p>
+<h2 id="vue3里类似于react-hook的一些新特性"><a href="#vue3里类似于react-hook的一些新特性" class="headerlink" title="vue3里类似于react-hook的一些新特性"></a>vue3里类似于react-hook的一些新特性</h2><h3 id="响应式系统"><a href="#响应式系统" class="headerlink" title="响应式系统"></a>响应式系统</h3><p>在vue3中也允许组件拥有自己独立的状态特性，这点和react-hook有着异曲同工之妙,下面就<a href="https://vue3js.cn/vue-composition-api/#setup" target="_blank" rel="noopener">vue3响应式系统，Composition API</a>做一个简单介绍：</p>
+<h4 id="核心api"><a href="#核心api" class="headerlink" title="核心api"></a>核心api</h4><ul>
+<li><p>reactive(定义state)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const obj = reactive(&#123; count: 0 &#125;)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>JWT：实际上除了 session 登录之外，现在越来越流行 JWT token 登录校验。该方式是在前端记录登录 token，每次请求的时候通过在 Header 中添加认证头的方式来实现登录校验过程。由于 CSRF 攻击中攻击者无法知道该 token 值，通过这种方式也是可以防止 CSRF 攻击的。(这种方法把token隐藏再请求头里)</p>
+<li><p>computed(计算属性)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const count = ref(1)</span><br><span class="line">const plusOne = computed(() =&gt; count.value + 1)</span><br><span class="line"></span><br><span class="line">console.log(plusOne.value) // 2</span><br><span class="line"></span><br><span class="line">plusOne.value++ // 错误！</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<h3 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h3><p>XSS，即 Cross Site Script，中译是跨站脚本攻击；其原本缩写是 CSS，但为了和层叠样式表(Cascading Style Sheet)有所区分，因而在安全领域叫做 XSS。</p>
-<p>XSS 攻击是指攻击者在网站上注入恶意的客户端代码，通过恶意脚本对客户端网页进行篡改，从而在用户浏览网页时，对用户浏览器进行控制或者获取用户隐私数据的一种攻击方式。</p>
-<p>攻击者对客户端网页注入的恶意脚本一般包括 JavaScript，有时也会包含 HTML 和 Flash。有很多种方式进行 XSS 攻击，但它们的共同点为：将一些隐私数据像 cookie、session 发送给攻击者，将受害者重定向到一个由攻击者控制的网站，在受害者的机器上进行一些恶意操作。</p>
-<p>XSS攻击可以分为3类：反射型（非持久型）、存储型（持久型）、基于DOM。</p>
-<p>防范： HttpOnly 防止劫取 Cookie、 输入检查</p>
-<p>具体参考：<a href="https://github.com/dwqs/blog/issues/68" target="_blank" rel="noopener">https://github.com/dwqs/blog/issues/68</a></p>
-<h2 id="渲染机制类"><a href="#渲染机制类" class="headerlink" title="渲染机制类"></a>渲染机制类</h2><p><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200531152629.png" alt></p>
-<h3 id="浏览器渲染机制"><a href="#浏览器渲染机制" class="headerlink" title="浏览器渲染机制"></a>浏览器渲染机制</h3><p><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200531152827.png" alt><br><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200531152911.png" alt><br><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200531153040.png" alt><br>浏览器渲染过程：<br><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200531153147.png" alt><br>Dom树渲染过程：<br><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200531153224.png" alt><br>CSSOM渲染过程：<br><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200531153256.png" alt></p>
-<h4 id="重排"><a href="#重排" class="headerlink" title="重排"></a>重排</h4><p><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200531154038.png" alt></p>
-<h4 id="重绘"><a href="#重绘" class="headerlink" title="重绘"></a>重绘</h4><p><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200531154225.png" alt></p>
-<h3 id="运行机制"><a href="#运行机制" class="headerlink" title="运行机制"></a>运行机制</h3><ul>
-<li>如何理解js的单线程？</li>
-<li>什么是任务队列</li>
-<li>什么是Event Loop</li>
-<li>哪些语句会放到异步队列中</li>
-<li>理解语句放入异步任务队列的时机</li>
 </ul>
-<p><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200601121046.png" alt></p>
-<ol>
-<li><p>同一时间内只能执行一个事件被称为单线程。</p>
-</li>
-<li><p>任务队列分同步任务和异步任务，同步任务直接进入执行栈里，异步任务则以回调的形式挂在任务队列中，直到执行栈空了，才从任务队列中拿出有返回结果的回调到执行队列，直到任务队列清空。任务队列即是存放异步任务回调的一个中间队列。</p>
-</li>
-<li><p>事件循环过程：<br>首先要知道，JS分为同步任务和异步任务<br>同步任务都在主线程(这里的主线程就是JS引擎线程)上执行，会形成一个执行栈<br>主线程之外，事件触发线程管理着一个任务队列，只要异步任务有了运行结果，就在任务队列之中放一个事件回调<br>一旦执行栈中的所有同步任务执行完毕(也就是JS引擎线程空闲了)，系统就会读取任务队列，将可运行的异步任务(任务队列中的事件回调，只要任务队列中有事件回调，就说明可以执行)添加到执行栈中，开始执行。一直不断放入队列和取出到执行栈的过程形成了事件循环这个过程。</p>
-</li>
-<li><p>什么情况下会执行异步任务：<br>setTimeout 和 setInterval事件、dom事件、es6的promise事件、网络请求等等。</p>
-</li>
-<li><p>异步任务不会立即执行，而是会在同步任务执行完之后读取任务队列，取出顺序是按异步任务返回结果的时间点来算的。同时<br>异步任务最小执行时间是4ms，低于这个时间也会自动改成这个时间来执行，所以0毫秒和4毫秒是没区别的。<br>参考：<a href="https://juejin.im/post/5e22b391f265da3e204d8c14" target="_blank" rel="noopener">https://juejin.im/post/5e22b391f265da3e204d8c14</a></p>
-</li>
-</ol>
-<h2 id="页面优化类"><a href="#页面优化类" class="headerlink" title="页面优化类"></a>页面优化类</h2><h3 id="优化措施有哪几种"><a href="#优化措施有哪几种" class="headerlink" title="优化措施有哪几种"></a>优化措施有哪几种</h3><ol>
-<li>资源合并，减少http请求</li>
-<li>非核心代码异步加载 –&gt; 异步加载的方式 –&gt; 异步加载的区别</li>
-<li>利用浏览器缓存 –&gt; 缓存的分类 –&gt; 缓存的原理</li>
-<li>使用CDN加速</li>
-<li><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200601141603.png" alt></li>
-</ol>
-<h3 id="异步加载"><a href="#异步加载" class="headerlink" title="异步加载"></a>异步加载</h3><h4 id="异步加载的方式"><a href="#异步加载的方式" class="headerlink" title="异步加载的方式"></a>异步加载的方式</h4><ol>
-<li>动态脚本加载: 动态加载包括一下3种方式</li>
-</ol>
+<p>也可以使用 get 和 set 函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const count = ref(1)</span><br><span class="line">const plusOne = computed(&#123;</span><br><span class="line">  get: () =&gt; count.value + 1,</span><br><span class="line">  set: (val) =&gt; &#123;</span><br><span class="line">    count.value = val - 1</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">plusOne.value = 1</span><br><span class="line">console.log(count.value) // 0</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li><p>直接document.write</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script language=&quot;javascript&quot;&gt; </span><br><span class="line">document.write(&quot;&lt;script src=&apos;test.js&apos;&gt;&lt;\/script&gt;&quot;); </span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>动态改变已有script的src属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&apos;&apos; id=&quot;s1&quot;&gt;&lt;/script&gt; </span><br><span class="line">&lt;script language=&quot;javascript&quot;&gt; </span><br><span class="line">s1.src=&quot;test.js&quot; </span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>动态创建script元素</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt; </span><br><span class="line">var oHead = document.getElementsByTagName(&apos;HEAD&apos;).item(0); </span><br><span class="line">var oScript= document.createElement(&quot;script&quot;); </span><br><span class="line">oScript.type = &quot;text/javascript&quot;; </span><br><span class="line">oScript.src=&quot;test.js&quot;; </span><br><span class="line">oHead.appendChild( oScript); </span><br><span class="line">&lt;/script</span><br></pre></td></tr></table></figure>
+<li>watchEffect(副作用)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const count = ref(0)</span><br><span class="line"></span><br><span class="line">watchEffect(() =&gt; console.log(count.value))</span><br><span class="line">// -&gt; 打印出 0</span><br><span class="line"></span><br><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">  count.value++</span><br><span class="line">  // -&gt; 打印出 1</span><br><span class="line">&#125;, 100)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<ol start="2">
-<li><p>defer</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&apos;&apos; id=&quot;s1&quot; defer&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>async</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&apos;&apos; id=&quot;s1&quot; async&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="异步加载的区别"><a href="#异步加载的区别" class="headerlink" title="异步加载的区别"></a>异步加载的区别</h4><ol>
-<li>没有标记defer和async 的脚本即是加载解析到它就开始执行,而非异步的。</li>
-<li>defer 和 async 都是异步加载，只不过defer是在html全部解析完才执行，如果是多个，按照加载的顺序依次执行</li>
-<li>async 脚本解析和html解析是同步进行的，当脚本加载完就会执行，不用考虑html解析是否完成，多个async脚本的执行顺序与加载顺序无关。</li>
-</ol>
-<h3 id="浏览器缓存"><a href="#浏览器缓存" class="headerlink" title="浏览器缓存"></a>浏览器缓存</h3><p><img src="https://xunmengren-blog.oss-cn-beijing.aliyuncs.com/20200601162353.png" alt></p>
-<ol>
-<li>强缓存<br>含义： 所谓强缓存就是只要在有效时间内，无需请求服务器，直接使用缓存信息。<br>相关字段：<br>Expires 服务器绝对时间，每次会与系统时间进行比较<br>Cache-Control max-age = 3600 相对时间, 优先级比Expires高<br>Pragma Pragma 只有一个属性值，就是 no-cache不使用强缓存，在 3 个头部属性中的优先级最高。</li>
-<li>协商缓存<br>含义： 浏览器知道本地缓存了信息，但是不知道信息是否可用，是否过期，于是会请求一下缓存是否可用。<br>相关字段：<br>Last-Modified：上次修改时间/If-Modified-Since：请求返回的是否修改的时间</li>
-</ol>
-<p>Last-Modified/If-Modified-Since 的值代表的是文件的最后修改时间，第一次请求服务端会把资源的最后修改时间放到 Last-Modified 响应头中，第二次发起请求的时候，请求头会带上上一次响应头中的 Last-Modified 的时间，并放到 If-Modified-Since 请求头属性中，服务端根据文件最后一次修改时间和 If-Modified-Since 的值进行比较，如果相等，返回 304 ，并加载浏览器缓存。</p>
-<p>Etag/If-None-Match:</p>
-<p>ETag/If-None-Match 的值是一串 hash 码，代表的是一个资源的标识符，当服务端的文件变化的时候，它的 hash码会随之改变，通过请求头中的 If-None-Match 和当前文件的 hash 值进行比较，如果相等则表示命中协商缓存。ETag 又有强弱校验之分，如果 hash 码是以 “W/“ 开头的一串字符串，说明此时协商缓存的校验是弱校验的，只有服务器上的文件差异（根据 ETag 计算方式来决定）达到能够触发 hash 值后缀变化的时候，才会真正地请求资源，否则返回 304 并加载浏览器缓存。</p>
+<p>高级api:</p>
 <ul>
-<li>ETag/If-None-Match 的出现主要解决了 Last-Modified/If-Modified-Since 所解决不了的问题：</li>
-</ul>
-<p>如果文件的修改频率在秒级以下，Last-Modified/If-Modified-Since 会错误地返回 304<br>如果文件被修改了，但是内容没有任何变化的时候，Last-Modified/If-Modified-Since 会错误地返回 304 ，上面的例子就说明了这个问题</p>
-<p>参考地址： <a href="https://juejin.im/post/5eb7f811f265da7bbc7cc5bd" target="_blank" rel="noopener">https://juejin.im/post/5eb7f811f265da7bbc7cc5bd</a></p>
-<h2 id="错误监控类"><a href="#错误监控类" class="headerlink" title="错误监控类"></a>错误监控类</h2><p>我们需要了解3个问题：</p>
-<ol>
-<li>前端错误的分类</li>
-<li>错误的捕获方式</li>
-<li>上报错误的基本原理</li>
-</ol>
-<h3 id="错误分类"><a href="#错误分类" class="headerlink" title="错误分类"></a>错误分类</h3><p>分为即时错误（代码错误）和资源加载错误。</p>
-<h3 id="错误的捕获方式"><a href="#错误的捕获方式" class="headerlink" title="错误的捕获方式"></a>错误的捕获方式</h3><h4 id="即时错误的捕获方式"><a href="#即时错误的捕获方式" class="headerlink" title="即时错误的捕获方式"></a>即时错误的捕获方式</h4><p>1）try catch<br>2) window.onerror<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">window.onerror = function (msg, url, lineNo, columnNo, error) &#123;</span><br><span class="line">    var string = msg.toLowerCase();</span><br><span class="line">    var substring = &quot;script error&quot;;</span><br><span class="line">    if (string.indexOf(substring) &gt; -1)&#123;</span><br><span class="line">        alert(&apos;Script Error: See Browser Console for Detail&apos;);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        var message = [</span><br><span class="line">            &apos;Message: &apos; + msg,</span><br><span class="line">            &apos;URL: &apos; + url,</span><br><span class="line">            &apos;Line: &apos; + lineNo,</span><br><span class="line">            &apos;Column: &apos; + columnNo,</span><br><span class="line">            &apos;Error object: &apos; + JSON.stringify(error)</span><br><span class="line">        ].join(&apos; - &apos;);</span><br><span class="line">        alert(message);</span><br><span class="line">    &#125;</span><br><span class="line">    return false;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<h4 id="资源加载错误"><a href="#资源加载错误" class="headerlink" title="资源加载错误"></a>资源加载错误</h4><p>1）object.onerror()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var img =document.getElementById(&apos;#img&apos;);</span><br><span class="line"></span><br><span class="line">    img.onerror = function() &#123;</span><br><span class="line"></span><br><span class="line">       // 捕获错误</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p>2) performance.getEntries()<br>浏览器获取网页时，会对网页中每一个对象（脚本文件、样式表、图片文件等等）发出一个HTTP请求。而通过window.performance.getEntries方法，则可以以数组形式，返回这些请求的时间统计信息，每个数组成员均是一个PerformanceResourceTiming对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">(function () &#123;</span><br><span class="line">    // 浏览器不支持，就算了！</span><br><span class="line">    if (!window.performance &amp;&amp; !window.performance.getEntries) &#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    var result = [];</span><br><span class="line">    // 获取当前页面所有请求对应的PerformanceResourceTiming对象进行分析</span><br><span class="line">    window.performance.getEntries().forEach((item) =&gt; &#123;</span><br><span class="line">        result.push(&#123;</span><br><span class="line">            &apos;url&apos;: item.name,</span><br><span class="line">            &apos;entryType&apos;: item.entryType,</span><br><span class="line">            &apos;type&apos;: item.initiatorType,</span><br><span class="line">            &apos;duration(ms)&apos;: item.duration</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line"> </span><br><span class="line">    // 控制台输出统计结果</span><br><span class="line">    console.table(result);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
-<p>3) Error 事件捕获。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.addEventListener(&quot;error&quot;,function(ev)&#123;    console.log(&apos;捕获&apos;,ev)// 捕获错误 &#125;,true);</span><br></pre></td></tr></table></figure></p>
-<p>捕获错误事件，记住第三个参数必须是true,这样才能才捕获阶段触发。默认为false,当捕获阶段报错，后续就终止了，不存在在冒泡阶段捕获到。</p>
-<h3 id="上报错误的基本原理"><a href="#上报错误的基本原理" class="headerlink" title="上报错误的基本原理"></a>上报错误的基本原理</h3><ol>
-<li>采用ajax通信方式上报</li>
-<li>使用img对象上报<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">(new Image()).src = &quot;http://xunmengren.work/fghj?ll=05678&quot;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<li><p>customRef<br>自定义ref，可以显式地控制依赖追踪和触发响应，<a href="https://vue3js.cn/vue-composition-api/#customref" target="_blank" rel="noopener">参考: 使用自定义 ref 实现带防抖功能的 v-model</a></p>
 </li>
-</ol>
-<h3 id="跨域js的运行错误捕获"><a href="#跨域js的运行错误捕获" class="headerlink" title="跨域js的运行错误捕获"></a>跨域js的运行错误捕获</h3><ol>
-<li>想获取其他域下的js错误需要在script标签里添加crossorigin属性</li>
-<li>服务器端要设置header(‘Access-Control-Allow-Origin: *’) 或者 指定域名</li>
-</ol>
-<h2 id="算法类"><a href="#算法类" class="headerlink" title="算法类"></a>算法类</h2><p>未完待续。。。</p>
+<li><p>shallowReactive<br>只为某个对象的私有（第一层）属性创建浅层的响应式代理，不会对“属性的属性”做深层次、递归地响应式代理，而只是保留原样。<a href="https://vue3js.cn/vue-composition-api/#shallowreactive" target="_blank" rel="noopener">参考</a></p>
+</li>
+<li><p>shallowReadonly(只读属性)<br><a href="https://vue3js.cn/vue-composition-api/#shallowreactive" target="_blank" rel="noopener">参考</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const state = shallowReactive(&#123;</span><br><span class="line">  foo: 1,</span><br><span class="line">  nested: &#123;</span><br><span class="line">    bar: 2,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 变更 state 的自有属性是响应式的</span><br><span class="line">state.foo++</span><br><span class="line">// ...但不会深层代理</span><br><span class="line">isReactive(state.nested) // false</span><br><span class="line">state.nested.bar++ // 非响应式</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">const &#123; reactive , onMounted &#125; = Vue</span><br><span class="line">export default &#123;</span><br><span class="line">  setup()&#123;</span><br><span class="line">      const state = reactive(&#123;</span><br><span class="line">          count:0,</span><br><span class="line">          todoList:[]</span><br><span class="line">      &#125;)</span><br><span class="line">      /* 生命周期mounted */</span><br><span class="line">      onMounted(() =&gt; &#123;</span><br><span class="line">        console.log(&apos;mounted&apos;)</span><br><span class="line">      &#125;)</span><br><span class="line">      /* 增加count数量 */</span><br><span class="line">      function add()&#123;</span><br><span class="line">          state.count++</span><br><span class="line">      &#125; </span><br><span class="line">      /* 减少count数量 */</span><br><span class="line">      function del()&#123;</span><br><span class="line">          state.count--</span><br><span class="line">      &#125;</span><br><span class="line">      /* 添加代办事项 */</span><br><span class="line">      function addTodo(id,title,content)&#123;</span><br><span class="line">          state.todoList.push(&#123;</span><br><span class="line">              id,</span><br><span class="line">              title,</span><br><span class="line">              content,</span><br><span class="line">              done:false</span><br><span class="line">          &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">      /* 完成代办事项 */</span><br><span class="line">      function complete(id)&#123;</span><br><span class="line">          for(let i = 0; i&lt; state.todoList.length; i++)&#123;</span><br><span class="line">              const currentTodo = state.todoList[i] </span><br><span class="line">              if(id === currentTodo.id)&#123;</span><br><span class="line">                  state.todoList[i] = &#123;</span><br><span class="line">                      ...currentTodo,</span><br><span class="line">                      done:true</span><br><span class="line">                  &#125; </span><br><span class="line">                  break</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      return &#123;</span><br><span class="line">          state,</span><br><span class="line">          add,</span><br><span class="line">          del,</span><br><span class="line">          addTodo,</span><br><span class="line">          complete</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>原理介绍：<br><a href="https://segmentfault.com/a/1190000023465134" target="_blank" rel="noopener">Vue3响应式原理 + 手写reactive</a></p>
+<p>Vue3 Composition API中的提取和重用逻辑：<br><a href="https://zhuanlan.zhihu.com/p/135445335" target="_blank" rel="noopener">参考文章</a></p>
+<p>总体来说vue3中Composition API在状态微粒化和逻辑复用这块和hook是很像的，只是关注点不一样，vue更加注重属性代理监听，react更为偏向于函数式开发，在书写灵活度上二者越来越一致了。</p>
 
       
 
@@ -557,11 +283,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -628,7 +354,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://Thedream-sky.github.io/2020/04/20/前端知识梳理/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://Thedream-sky.github.io/2020/09/20/react-hook和vue3新特性的思考/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -642,18 +368,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/06/03/前端知识梳理-进阶/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          前端知识梳理(进阶)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/04/20/常用算法/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">常用算法</div>
+    <a href="/2020/06/24/头条小程序开发的坑/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">头条小程序开发的坑</div>
       <i class="icon-circle-right"></i>
     </a>
   
